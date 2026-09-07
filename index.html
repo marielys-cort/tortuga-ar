@@ -2,51 +2,27 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#087f8c">
+    <meta name="description" content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
 
-    <meta name="description"
-          content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
+    <title>Tortuga Verde | Chelonia mydas</title>
 
-    <title>
-        Tortuga Verde | Chelonia mydas
-    </title>
-
-
-    <!-- =====================================================
-         MODEL VIEWER
-    ====================================================== -->
-
-    <script
-        type="module"
+    <!-- MODEL VIEWER -->
+    <script type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
     </script>
 
-
-    <!-- =====================================================
-         LEAFLET - MAPA INTERACTIVO
-    ====================================================== -->
-
-    <link
-        rel="stylesheet"
+    <!-- LEAFLET -->
+    <link rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        crossorigin=""
-    />
-
+        crossorigin="">
 
     <script
         src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         crossorigin="">
     </script>
-
-
-    <!-- =====================================================
-         ESTILOS
-    ====================================================== -->
 
     <style>
 
@@ -56,1761 +32,829 @@
             padding: 0;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background:
-                #f3faf9;
-
-            color:
-                #173b3f;
-
-            line-height:
-                1.65;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3faf9;
+            color: #173b3f;
+            line-height: 1.65;
         }
 
-
-        /* =================================================
-           ENCABEZADO
-        ================================================= */
+        /* ================= HEADER ================= */
 
         header {
+            background: linear-gradient(
+                135deg,
+                #064f59,
+                #087f8c,
+                #21a39d
+            );
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #064f59,
-                    #087f8c,
-                    #21a39d
-                );
-
-            color:
-                white;
-
-            text-align:
-                center;
-
-            padding:
-                65px 20px 75px;
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
+            color: white;
+            text-align: center;
+            padding: 65px 20px 75px;
+            position: relative;
+            overflow: hidden;
         }
-
 
         header::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                400px;
-
-            height:
-                400px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(255,255,255,0.07);
-
-            top:
-                -220px;
-
-            left:
-                -120px;
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.07);
+            top: -220px;
+            left: -120px;
         }
-
 
         header::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                330px;
-
-            height:
-                330px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(255,255,255,0.06);
-
-            bottom:
-                -200px;
-
-            right:
-                -100px;
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            bottom: -200px;
+            right: -100px;
         }
-
 
         .header-content {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            max-width:
-                900px;
-
-            margin:
-                auto;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: auto;
         }
-
-
-        .turtle-icon {
-
-            font-size:
-                65px;
-
-            margin-bottom:
-                10px;
-        }
-
 
         header h1 {
-
-            font-size:
-                clamp(36px, 7vw, 60px);
-
-            line-height:
-                1.1;
-
-            margin-bottom:
-                10px;
+            font-size: clamp(36px, 7vw, 60px);
+            line-height: 1.1;
+            margin-bottom: 10px;
         }
-
 
         header h2 {
-
-            font-size:
-                clamp(21px, 4vw, 29px);
-
-            font-weight:
-                normal;
-
-            font-style:
-                italic;
+            font-size: clamp(21px, 4vw, 29px);
+            font-weight: normal;
+            font-style: italic;
         }
-
 
         header p {
-
-            max-width:
-                750px;
-
-            margin:
-                22px auto 0;
-
-            font-size:
-                17px;
-
-            opacity:
-                0.93;
+            max-width: 750px;
+            margin: 22px auto 0;
+            font-size: 17px;
+            opacity: 0.93;
         }
 
-
-        /* =================================================
-           NAVEGACIÓN
-        ================================================= */
+        /* ================= NAV ================= */
 
         nav {
-
-            background:
-                white;
-
-            box-shadow:
-                0 3px 15px rgba(0,0,0,0.08);
-
-            position:
-                sticky;
-
-            top:
-                0;
-
-            z-index:
-                100;
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-
 
         .nav-container {
-
-            max-width:
-                1100px;
-
-            margin:
-                auto;
-
-            display:
-                flex;
-
-            justify-content:
-                center;
-
-            flex-wrap:
-                wrap;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-
 
         nav a {
-
-            text-decoration:
-                none;
-
-            color:
-                #17555a;
-
-            padding:
-                14px 16px;
-
-            font-size:
-                14px;
-
-            font-weight:
-                bold;
-
-            transition:
-                0.2s;
+            text-decoration: none;
+            color: #17555a;
+            padding: 14px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
         }
-
 
         nav a:hover {
-
-            background:
-                #eaf7f5;
-
-            color:
-                #087f8c;
+            background: #eaf7f5;
+            color: #087f8c;
         }
 
-
-        /* =================================================
-           CONTENEDOR
-        ================================================= */
+        /* ================= CONTENEDOR ================= */
 
         .container {
-
-            width:
-                92%;
-
-            max-width:
-                1100px;
-
-            margin:
-                auto;
+            width: 92%;
+            max-width: 1100px;
+            margin: auto;
         }
 
-
-        /* =================================================
-           INTRO
-        ================================================= */
+        /* ================= INTRO ================= */
 
         .intro {
-
-            text-align:
-                center;
-
-            padding:
-                60px 10px 30px;
+            text-align: center;
+            padding: 60px 10px 30px;
         }
-
 
         .intro h2 {
-
-            color:
-                #075e67;
-
-            font-size:
-                clamp(28px, 5vw, 42px);
-
-            margin-bottom:
-                15px;
+            color: #075e67;
+            font-size: clamp(28px, 5vw, 42px);
+            margin-bottom: 15px;
         }
-
 
         .intro p {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-            color:
-                #5e7073;
-
-            font-size:
-                17px;
+            max-width: 800px;
+            margin: auto;
+            color: #5e7073;
+            font-size: 17px;
         }
 
-
-        /* =================================================
-           MODELO 3D
-        ================================================= */
+        /* ================= MODELO 3D ================= */
 
         .model-section {
-
-            background:
-                white;
-
-            border-radius:
-                25px;
-
-            overflow:
-                hidden;
-
-            box-shadow:
-                0 12px 35px rgba(0,0,0,0.09);
-
-            margin:
-                25px auto 55px;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+            margin: 25px auto 55px;
         }
-
 
         model-viewer {
-
-            width:
-                100%;
-
-            height:
-                560px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #e1f2f1,
-                    #f7fbfa
-                );
+            width: 100%;
+            height: 560px;
+            background: linear-gradient(
+                180deg,
+                #e1f2f1,
+                #f7fbfa
+            );
         }
-
 
         #ar-button {
-
-            position:
-                absolute;
-
-            bottom:
-                28px;
-
-            left:
-                50%;
-
-            transform:
-                translateX(-50%);
-
-            width:
-                auto;
-
-            min-width:
-                240px;
-
-            background:
-                #087f8c;
-
-            color:
-                white;
-
-            border:
-                none;
-
-            border-radius:
-                50px;
-
-            padding:
-                16px 28px;
-
-            font-size:
-                16px;
-
-            font-weight:
-                bold;
-
-            cursor:
-                pointer;
-
-            box-shadow:
-                0 6px 20px rgba(0,0,0,0.25);
-
-            transition:
-                0.25s;
-
-            z-index:
-                10;
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            min-width: 240px;
+            background: #087f8c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            transition: 0.25s;
+            z-index: 10;
         }
-
 
         #ar-button:hover {
-
-            background:
-                #05636c;
-
-            transform:
-                translateX(-50%) translateY(-2px);
+            background: #05636c;
+            transform: translateX(-50%) translateY(-2px);
         }
-
 
         .model-controls {
-
-            text-align:
-                center;
-
-            padding:
-                18px 20px;
-
-            color:
-                #657779;
-
-            font-size:
-                14px;
+            text-align: center;
+            padding: 18px 20px;
+            color: #657779;
+            font-size: 14px;
         }
 
-
-        /* =================================================
-           DATOS
-        ================================================= */
+        /* ================= DATOS ================= */
 
         .highlights {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap:
-                15px;
-
-            margin:
-                20px 0 55px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0 55px;
         }
-
 
         .highlight {
-
-            background:
-                #e0f3f0;
-
-            border-radius:
-                16px;
-
-            padding:
-                23px 12px;
-
-            text-align:
-                center;
+            background: #e0f3f0;
+            border-radius: 16px;
+            padding: 23px 12px;
+            text-align: center;
         }
-
 
         .highlight strong {
-
-            display:
-                block;
-
-            font-size:
-                23px;
-
-            color:
-                #075e67;
+            display: block;
+            font-size: 23px;
+            color: #075e67;
         }
-
 
         .highlight span {
-
-            font-size:
-                13px;
-
-            color:
-                #607577;
+            font-size: 13px;
+            color: #607577;
         }
 
-
-        /* =================================================
-           SECCIONES
-        ================================================= */
+        /* ================= SECCIONES ================= */
 
         .section {
-
-            padding:
-                45px 0;
+            padding: 45px 0;
         }
-
 
         .section-title {
-
-            text-align:
-                center;
-
-            margin-bottom:
-                35px;
+            text-align: center;
+            margin-bottom: 35px;
         }
-
 
         .section-title h2 {
-
-            color:
-                #075e67;
-
-            font-size:
-                clamp(28px, 5vw, 39px);
-
-            margin-bottom:
-                8px;
+            color: #075e67;
+            font-size: clamp(28px, 5vw, 39px);
+            margin-bottom: 8px;
         }
-
 
         .section-title p {
-
-            color:
-                #687a7c;
+            color: #687a7c;
         }
 
-
-        /* =================================================
-           TARJETAS
-        ================================================= */
+        /* ================= TARJETAS ================= */
 
         .cards {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap:
-                22px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
-
 
         .card {
-
-            background:
-                white;
-
-            border-radius:
-                18px;
-
-            padding:
-                28px;
-
-            box-shadow:
-                0 6px 22px rgba(0,0,0,0.06);
-
-            border:
-                1px solid #e0eeee;
-
-            transition:
-                0.2s;
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+            border: 1px solid #e0eeee;
+            transition: 0.2s;
         }
-
 
         .card:hover {
-
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                0 10px 28px rgba(0,0,0,0.10);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.10);
         }
-
 
         .card-icon {
-
-            font-size:
-                35px;
-
-            margin-bottom:
-                12px;
+            font-size: 35px;
+            margin-bottom: 12px;
         }
-
 
         .card h3 {
-
-            color:
-                #087f8c;
-
-            font-size:
-                21px;
-
-            margin-bottom:
-                10px;
+            color: #087f8c;
+            font-size: 21px;
+            margin-bottom: 10px;
         }
-
 
         .card p {
-
-            color:
-                #596d70;
+            color: #596d70;
         }
 
-
-        /* =================================================
-           MAPA
-        ================================================= */
+        /* ================= MAPA ================= */
 
         .map-section {
-
-            background:
-                white;
-
-            border-radius:
-                25px;
-
-            padding:
-                35px;
-
-            margin:
-                25px 0 55px;
-
-            box-shadow:
-                0 8px 28px rgba(0,0,0,0.07);
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            margin: 25px 0 55px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
         }
-
 
         .map-title {
-
-            text-align:
-                center;
-
-            margin-bottom:
-                12px;
+            text-align: center;
+            margin-bottom: 12px;
         }
-
 
         .map-title h2 {
-
-            color:
-                #075e67;
-
-            font-size:
-                32px;
-
-            margin-bottom:
-                8px;
+            color: #075e67;
+            font-size: 32px;
+            margin-bottom: 8px;
         }
-
 
         .map-title p {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-            color:
-                #657779;
+            max-width: 800px;
+            margin: auto;
+            color: #657779;
         }
-
 
         #map {
-
-            width:
-                100%;
-
-            height:
-                500px;
-
-            margin-top:
-                25px;
-
-            border-radius:
-                18px;
-
-            overflow:
-                hidden;
-
-            border:
-                1px solid #d7e9e7;
+            width: 100%;
+            height: 500px;
+            margin-top: 25px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #d7e9e7;
         }
-
 
         .map-note {
-
-            background:
-                #eef8f7;
-
-            border-radius:
-                12px;
-
-            padding:
-                15px;
-
-            margin-top:
-                15px;
-
-            text-align:
-                center;
-
-            color:
-                #587174;
-
-            font-size:
-                13px;
+            background: #eef8f7;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+            color: #587174;
+            font-size: 13px;
         }
-
-
-        .leaflet-popup-content-wrapper {
-
-            border-radius:
-                14px;
-        }
-
 
         .popup-title {
-
-            color:
-                #075e67;
-
-            font-size:
-                17px;
-
-            font-weight:
-                bold;
-
-            margin-bottom:
-                6px;
+            color: #075e67;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 6px;
         }
-
 
         .popup-type {
-
-            color:
-                #087f8c;
-
-            font-weight:
-                bold;
-
-            font-size:
-                13px;
-
-            margin-bottom:
-                6px;
+            color: #087f8c;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 6px;
         }
-
 
         .popup-text {
-
-            color:
-                #596d70;
-
-            font-size:
-                13px;
-
-            line-height:
-                1.5;
+            color: #596d70;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
+        /* ================= MARCADORES ROJOS ================= */
 
-        /* =================================================
-           DISTRIBUCIÓN
-        ================================================= */
+        .marcador-rojo {
+            width: 22px;
+            height: 22px;
+            background: #e53935;
+            border: 3px solid white;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 7px rgba(0,0,0,0.35);
+            position: relative;
+        }
+
+        .marcador-rojo::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        /* ================= DISTRIBUCIÓN ================= */
 
         .distribution {
-
-            background:
-                #f0f8f7;
-
-            border-radius:
-                23px;
-
-            padding:
-                40px;
-
-            margin:
-                20px 0 55px;
+            background: #f0f8f7;
+            border-radius: 23px;
+            padding: 40px;
+            margin: 20px 0 55px;
         }
-
 
         .distribution h2 {
-
-            text-align:
-                center;
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                18px;
+            text-align: center;
+            color: #075e67;
+            margin-bottom: 18px;
         }
-
 
         .distribution p {
-
-            max-width:
-                850px;
-
-            margin:
-                auto;
-
-            text-align:
-                center;
-
-            color:
-                #596d70;
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #596d70;
         }
-
 
         .oceans {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                15px;
-
-            margin-top:
-                28px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 28px;
         }
-
 
         .ocean {
-
-            background:
-                white;
-
-            padding:
-                20px;
-
-            border-radius:
-                14px;
-
-            text-align:
-                center;
-
-            color:
-                #17555a;
-
-            font-weight:
-                bold;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.04);
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            color: #17555a;
+            font-weight: bold;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
         }
 
-
-        /* =================================================
-           CICLO DE VIDA
-        ================================================= */
+        /* ================= CICLO DE VIDA ================= */
 
         .life-cycle {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap:
-                15px;
-
-            margin-top:
-                30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 30px;
         }
-
 
         .life-stage {
-
-            background:
-                white;
-
-            border:
-                1px solid #deeceb;
-
-            border-radius:
-                18px;
-
-            padding:
-                25px 15px;
-
-            text-align:
-                center;
-
-            box-shadow:
-                0 5px 18px rgba(0,0,0,0.05);
+            background: white;
+            border: 1px solid #deeceb;
+            border-radius: 18px;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.05);
         }
-
 
         .life-stage .number {
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                #087f8c;
-
-            color:
-                white;
-
-            font-weight:
-                bold;
-
-            margin:
-                0 auto 13px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #087f8c;
+            color: white;
+            font-weight: bold;
+            margin: 0 auto 13px;
         }
-
 
         .life-stage h3 {
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                8px;
+            color: #075e67;
+            margin-bottom: 8px;
         }
-
 
         .life-stage p {
-
-            color:
-                #627476;
-
-            font-size:
-                14px;
+            color: #627476;
+            font-size: 14px;
         }
 
-
-        /* =================================================
-           CURIOSIDAD
-        ================================================= */
+        /* ================= CURIOSIDAD ================= */
 
         .fact {
+            background: linear-gradient(
+                135deg,
+                #d7efed,
+                #eff9f7
+            );
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #d7efed,
-                    #eff9f7
-                );
-
-            border-radius:
-                22px;
-
-            padding:
-                38px 30px;
-
-            text-align:
-                center;
-
-            margin:
-                50px 0;
+            border-radius: 22px;
+            padding: 38px 30px;
+            text-align: center;
+            margin: 50px 0;
         }
-
 
         .fact-icon {
-
-            font-size:
-                42px;
-
-            margin-bottom:
-                8px;
+            font-size: 42px;
+            margin-bottom: 8px;
         }
-
 
         .fact h2 {
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                10px;
+            color: #075e67;
+            margin-bottom: 10px;
         }
-
 
         .fact p {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-            color:
-                #556c6f;
+            max-width: 800px;
+            margin: auto;
+            color: #556c6f;
         }
 
-
-        /* =================================================
-           AMENAZAS
-        ================================================= */
+        /* ================= AMENAZAS ================= */
 
         .threat-section {
-
-            background:
-                #173b3f;
-
-            color:
-                white;
-
-            border-radius:
-                23px;
-
-            padding:
-                45px 35px;
-
-            margin:
-                55px 0;
+            background: #173b3f;
+            color: white;
+            border-radius: 23px;
+            padding: 45px 35px;
+            margin: 55px 0;
         }
-
 
         .threat-section h2 {
-
-            text-align:
-                center;
-
-            margin-bottom:
-                12px;
+            text-align: center;
+            margin-bottom: 12px;
         }
-
 
         .threat-section > p {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-            text-align:
-                center;
-
-            opacity:
-                0.9;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            opacity: 0.9;
         }
-
 
         .threats {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                15px;
-
-            margin-top:
-                30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
         }
-
 
         .threat {
-
-            background:
-                rgba(255,255,255,0.08);
-
-            padding:
-                22px;
-
-            border-radius:
-                14px;
-
-            text-align:
-                center;
+            background: rgba(255,255,255,0.08);
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
         }
-
 
         .threat-icon {
-
-            font-size:
-                30px;
-
-            margin-bottom:
-                8px;
+            font-size: 30px;
+            margin-bottom: 8px;
         }
-
 
         .threat strong {
-
-            display:
-                block;
-
-            margin-bottom:
-                7px;
+            display: block;
+            margin-bottom: 7px;
         }
-
 
         .threat span {
-
-            font-size:
-                14px;
-
-            opacity:
-                0.88;
+            font-size: 14px;
+            opacity: 0.88;
         }
 
-
-        /* =================================================
-           PANAMÁ
-        ================================================= */
+        /* ================= PANAMÁ ================= */
 
         .panama {
+            background: linear-gradient(
+                135deg,
+                #e3f4f2,
+                #f5faf9
+            );
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #e3f4f2,
-                    #f5faf9
-                );
-
-            border:
-                1px solid #cde8e5;
-
-            border-radius:
-                23px;
-
-            padding:
-                45px 35px;
-
-            margin:
-                55px 0;
+            border: 1px solid #cde8e5;
+            border-radius: 23px;
+            padding: 45px 35px;
+            margin: 55px 0;
         }
-
 
         .panama h2 {
-
-            text-align:
-                center;
-
-            color:
-                #075e67;
-
-            font-size:
-                32px;
-
-            margin-bottom:
-                18px;
+            text-align: center;
+            color: #075e67;
+            font-size: 32px;
+            margin-bottom: 18px;
         }
-
 
         .panama p {
-
-            max-width:
-                850px;
-
-            margin:
-                auto;
-
-            color:
-                #566c6f;
-
-            text-align:
-                center;
+            max-width: 850px;
+            margin: auto;
+            color: #566c6f;
+            text-align: center;
         }
-
 
         .panama-highlight {
-
-            background:
-                white;
-
-            border-radius:
-                17px;
-
-            padding:
-                25px;
-
-            margin-top:
-                25px;
-
-            text-align:
-                center;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.05);
+            background: white;
+            border-radius: 17px;
+            padding: 25px;
+            margin-top: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
-
 
         .panama-highlight strong {
-
-            color:
-                #087f8c;
-
-            display:
-                block;
-
-            font-size:
-                20px;
-
-            margin-bottom:
-                8px;
+            color: #087f8c;
+            display: block;
+            font-size: 20px;
+            margin-bottom: 12px;
         }
 
-
-        /* =================================================
-           CONSERVACIÓN
-        ================================================= */
+        /* ================= CONSERVACIÓN ================= */
 
         .conservation {
-
-            background:
-                white;
-
-            border-radius:
-                23px;
-
-            padding:
-                40px;
-
-            margin:
-                55px 0;
-
-            box-shadow:
-                0 7px 25px rgba(0,0,0,0.06);
+            background: white;
+            border-radius: 23px;
+            padding: 40px;
+            margin: 55px 0;
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
         }
-
 
         .conservation h2 {
-
-            text-align:
-                center;
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                15px;
+            text-align: center;
+            color: #075e67;
+            margin-bottom: 15px;
         }
-
 
         .conservation > p {
-
-            max-width:
-                820px;
-
-            margin:
-                auto;
-
-            text-align:
-                center;
-
-            color:
-                #5d7072;
+            max-width: 820px;
+            margin: auto;
+            text-align: center;
+            color: #5d7072;
         }
-
 
         .actions {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                15px;
-
-            margin-top:
-                28px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 28px;
         }
-
 
         .action {
-
-            background:
-                #eef8f7;
-
-            padding:
-                20px;
-
-            border-radius:
-                14px;
-
-            text-align:
-                center;
-
-            color:
-                #49676a;
+            background: #eef8f7;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            color: #49676a;
         }
-
 
         .action strong {
-
-            display:
-                block;
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                6px;
+            display: block;
+            color: #075e67;
+            margin-bottom: 6px;
         }
 
-
-        /* =================================================
-           REALIDAD AUMENTADA
-        ================================================= */
+        /* ================= REALIDAD AUMENTADA ================= */
 
         .ar-guide {
-
-            background:
-                white;
-
-            border-radius:
-                23px;
-
-            padding:
-                40px;
-
-            margin:
-                55px 0;
-
-            box-shadow:
-                0 7px 25px rgba(0,0,0,0.06);
+            background: white;
+            border-radius: 23px;
+            padding: 40px;
+            margin: 55px 0;
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
         }
-
 
         .ar-guide h2 {
-
-            text-align:
-                center;
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                30px;
+            text-align: center;
+            color: #075e67;
+            margin-bottom: 30px;
         }
-
 
         .steps {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap:
-                15px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
         }
-
 
         .step {
-
-            background:
-                #f0f8f7;
-
-            padding:
-                20px;
-
-            border-radius:
-                15px;
-
-            text-align:
-                center;
+            background: #f0f8f7;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
         }
-
 
         .step-number {
-
-            width:
-                40px;
-
-            height:
-                40px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                #087f8c;
-
-            color:
-                white;
-
-            font-weight:
-                bold;
-
-            margin:
-                0 auto 12px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #087f8c;
+            color: white;
+            font-weight: bold;
+            margin: 0 auto 12px;
         }
-
 
         .step strong {
-
-            display:
-                block;
-
-            color:
-                #17555a;
-
-            margin-bottom:
-                6px;
+            display: block;
+            color: #17555a;
+            margin-bottom: 6px;
         }
-
 
         .step p {
-
-            font-size:
-                13px;
-
-            color:
-                #657779;
+            font-size: 13px;
+            color: #657779;
         }
 
-
-        /* =================================================
-           FUENTES
-        ================================================= */
+        /* ================= FUENTES ================= */
 
         .sources {
-
-            background:
-                #f0f7f6;
-
-            border-radius:
-                20px;
-
-            padding:
-                30px;
-
-            margin:
-                55px 0 35px;
+            background: #f0f7f6;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 55px 0 35px;
         }
-
 
         .sources h2 {
-
-            color:
-                #075e67;
-
-            text-align:
-                center;
-
-            margin-bottom:
-                18px;
+            color: #075e67;
+            text-align: center;
+            margin-bottom: 18px;
         }
-
 
         .sources ul {
-
-            max-width:
-                850px;
-
-            margin:
-                auto;
-
-            padding-left:
-                20px;
+            max-width: 850px;
+            margin: auto;
+            padding-left: 20px;
         }
-
 
         .sources li {
-
-            margin-bottom:
-                10px;
-
-            color:
-                #5b6f71;
-
-            font-size:
-                14px;
+            margin-bottom: 10px;
+            color: #5b6f71;
+            font-size: 14px;
         }
-
 
         .sources a {
-
-            color:
-                #087f8c;
-
-            font-weight:
-                bold;
+            color: #087f8c;
+            font-weight: bold;
         }
 
-
-        /* =================================================
-           CRÉDITOS
-        ================================================= */
+        /* ================= CRÉDITOS ================= */
 
         .credits {
-
-            background:
-                #e6f2f0;
-
-            border-radius:
-                20px;
-
-            padding:
-                30px;
-
-            margin:
-                35px 0 50px;
-
-            text-align:
-                center;
-
-            color:
-                #607375;
-
-            font-size:
-                14px;
+            background: #e6f2f0;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 35px 0 50px;
+            text-align: center;
+            color: #607375;
+            font-size: 14px;
         }
-
 
         .credits h2 {
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                12px;
+            color: #075e67;
+            margin-bottom: 12px;
         }
-
 
         .credits a {
-
-            color:
-                #087f8c;
-
-            font-weight:
-                bold;
-
-            text-decoration:
-                none;
+            color: #087f8c;
+            font-weight: bold;
+            text-decoration: none;
         }
 
-
-        /* =================================================
-           FOOTER
-        ================================================= */
+        /* ================= FOOTER ================= */
 
         footer {
-
-            background:
-                #102f33;
-
-            color:
-                white;
-
-            text-align:
-                center;
-
-            padding:
-                30px 20px;
-
-            font-size:
-                13px;
+            background: #102f33;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 13px;
         }
-
 
         footer p {
-
-            margin:
-                5px 0;
-
-            opacity:
-                0.85;
+            margin: 5px 0;
+            opacity: 0.85;
         }
 
-
-        /* =================================================
-           RESPONSIVE
-        ================================================= */
+        /* ================= RESPONSIVE ================= */
 
         @media (max-width: 850px) {
 
             .cards {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
 
             .highlights {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
-
 
             .life-cycle {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
-
 
             .oceans {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
 
             .threats {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
 
             .actions {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
 
             .steps {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
-
         }
-
 
         @media (max-width: 600px) {
 
             header {
-
-                padding:
-                    45px 15px 55px;
+                padding: 45px 15px 55px;
             }
-
-
-            .turtle-icon {
-
-                font-size:
-                    52px;
-            }
-
 
             nav a {
-
-                padding:
-                    11px 9px;
-
-                font-size:
-                    12px;
+                padding: 11px 9px;
+                font-size: 12px;
             }
-
 
             model-viewer {
-
-                height:
-                    450px;
+                height: 450px;
             }
-
 
             #ar-button {
-
-                width:
-                    88%;
-
-                min-width:
-                    0;
-
-                font-size:
-                    14px;
+                width: 88%;
+                min-width: 0;
+                font-size: 14px;
             }
-
 
             .map-section {
-
-                padding:
-                    22px 15px;
+                padding: 22px 15px;
             }
-
 
             #map {
-
-                height:
-                    430px;
+                height: 430px;
             }
-
 
             .distribution,
             .panama,
             .conservation,
             .ar-guide,
             .threat-section {
-
-                padding:
-                    28px 20px;
+                padding: 28px 20px;
             }
-
 
             .life-cycle {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
 
             .steps {
-
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
-
         }
 
     </style>
-
 </head>
 
 
 <body>
 
-
-    <!-- =====================================================
-         ENCABEZADO
-    ====================================================== -->
+    <!-- ================= HEADER ================= -->
 
     <header id="inicio">
 
@@ -1820,13 +864,15 @@
                 Tortuga Verde
             </h1>
 
-            <p>
+            <h2>
+                <em>Chelonia mydas</em>
+            </h2>
 
+            <p>
                 Explora esta especie marina mediante
                 una experiencia educativa interactiva
                 con visualización 3D, mapa interactivo
                 y realidad aumentada.
-
             </p>
 
         </div>
@@ -1834,37 +880,18 @@
     </header>
 
 
-    <!-- =====================================================
-         NAVEGACIÓN
-    ====================================================== -->
+    <!-- ================= NAVEGACIÓN ================= -->
 
     <nav>
 
         <div class="nav-container">
 
-            <a href="#modelo">
-                🐢 Modelo 3D
-            </a>
-
-            <a href="#conoce">
-                🌊 Conócela
-            </a>
-
-            <a href="#mapa">
-                🗺️ Mapa
-            </a>
-
-            <a href="#ciclo">
-                🥚 Ciclo de vida
-            </a>
-
-            <a href="#amenazas">
-                ⚠️ Amenazas
-            </a>
-
-            <a href="#panama">
-                🇵🇦 Panamá
-            </a>
+            <a href="#modelo">🐢 Modelo 3D</a>
+            <a href="#conoce">🌊 Conócela</a>
+            <a href="#mapa">🗺️ Mapa</a>
+            <a href="#ciclo">🥚 Ciclo de vida</a>
+            <a href="#amenazas">⚠️ Amenazas</a>
+            <a href="#panama">🇵🇦 Panamá</a>
 
         </div>
 
@@ -1874,9 +901,7 @@
     <main class="container">
 
 
-        <!-- =================================================
-             INTRO
-        ================================================== -->
+        <!-- ================= INTRO ================= -->
 
         <section class="intro">
 
@@ -1885,25 +910,20 @@
             </h2>
 
             <p>
-
                 <em>Chelonia mydas</em> es una tortuga marina
                 de amplia distribución mundial. Los adultos
                 son principalmente herbívoros y se alimentan
                 sobre todo de algas y pastos marinos.
-
             </p>
 
         </section>
 
 
-        <!-- =================================================
-             MODELO 3D
-        ================================================== -->
+        <!-- ================= MODELO 3D ================= -->
 
         <section
             id="modelo"
             class="model-section">
-
 
             <model-viewer
 
@@ -1949,19 +969,15 @@
                     5m
                 "
 
-                interaction-prompt="
-                    auto
-                ">
-
+                interaction-prompt="auto">
 
                 <button
                     slot="ar-button"
                     id="ar-button">
 
-                    🐢 VER EN MI ESPACIO
+                    VER EN MI ESPACIO
 
                 </button>
-
 
             </model-viewer>
 
@@ -1976,16 +992,12 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- =================================================
-             DATOS DESTACADOS
-        ================================================== -->
+        <!-- ================= DATOS ================= -->
 
         <div class="highlights">
-
 
             <div class="highlight">
 
@@ -2002,9 +1014,7 @@
 
             <div class="highlight">
 
-                <strong>
-                    🌎
-                </strong>
+                <strong>🌎</strong>
 
                 <span>
                     Distribución mundial
@@ -2015,9 +1025,7 @@
 
             <div class="highlight">
 
-                <strong>
-                    🥬
-                </strong>
+                <strong>🥬</strong>
 
                 <span>
                     Adultos principalmente herbívoros
@@ -2028,9 +1036,7 @@
 
             <div class="highlight">
 
-                <strong>
-                    🐢
-                </strong>
+                <strong>🐢</strong>
 
                 <span>
                     Tortuga marina
@@ -2038,18 +1044,14 @@
 
             </div>
 
-
         </div>
 
 
-        <!-- =================================================
-             CONOCE
-        ================================================== -->
+        <!-- ================= CONOCE ================= -->
 
         <section
             id="conoce"
             class="section">
-
 
             <div class="section-title">
 
@@ -2079,13 +1081,11 @@
                     </h3>
 
                     <p>
-
                         La tortuga verde es una tortuga marina
                         de caparazón duro. Los adultos presentan
                         una coloración variable en el caparazón,
                         mientras que su cuerpo está adaptado
                         para desplazarse por el océano.
-
                     </p>
 
                 </div>
@@ -2102,11 +1102,9 @@
                     </h3>
 
                     <p>
-
                         Los adultos son principalmente
                         herbívoros y consumen principalmente
                         algas y pastos marinos.
-
                     </p>
 
                 </div>
@@ -2123,12 +1121,10 @@
                     </h3>
 
                     <p>
-
                         Utiliza diferentes ambientes durante
                         su vida, desde zonas oceánicas hasta
                         áreas costeras poco profundas donde
                         puede alimentarse.
-
                     </p>
 
                 </div>
@@ -2145,11 +1141,9 @@
                     </h3>
 
                     <p>
-
                         Puede realizar desplazamientos entre
                         áreas de alimentación y zonas de
                         reproducción.
-
                     </p>
 
                 </div>
@@ -2157,18 +1151,14 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- =================================================
-             MAPA INTERACTIVO
-        ================================================== -->
+        <!-- ================= MAPA ================= -->
 
         <section
             id="mapa"
             class="map-section">
-
 
             <div class="map-title">
 
@@ -2177,13 +1167,11 @@
                 </h2>
 
                 <p>
-
                     Explora algunos sitios panameños
                     documentados en fuentes oficiales
                     en relación con la presencia o
                     anidación de tortugas marinas,
                     incluida <em>Chelonia mydas</em>.
-
                 </p>
 
             </div>
@@ -2195,8 +1183,7 @@
             <div class="map-note">
 
                 📍 Toca un marcador para conocer
-                la información disponible sobre
-                ese sitio.
+                la información disponible sobre ese sitio.
 
                 <br>
 
@@ -2206,65 +1193,50 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- =================================================
-             DISTRIBUCIÓN
-        ================================================== -->
+        <!-- ================= DISTRIBUCIÓN ================= -->
 
         <section class="distribution">
-
 
             <h2>
                 🌎 Distribución mundial
             </h2>
 
-
             <p>
-
                 La tortuga verde se encuentra en regiones
                 tropicales y subtropicales de diferentes
                 océanos. Su ciclo de vida puede implicar
                 desplazamientos entre zonas de alimentación
                 y playas de reproducción.
-
             </p>
 
 
             <div class="oceans">
 
-
                 <div class="ocean">
                     🌊 Océano Atlántico
                 </div>
-
 
                 <div class="ocean">
                     🌊 Océano Pacífico
                 </div>
 
-
                 <div class="ocean">
                     🌊 Océano Índico
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-        <!-- =================================================
-             CICLO DE VIDA
-        ================================================== -->
+        <!-- ================= CICLO DE VIDA ================= -->
 
         <section
             id="ciclo"
             class="section">
-
 
             <div class="section-title">
 
@@ -2284,20 +1256,16 @@
 
                 <div class="life-stage">
 
-                    <div class="number">
-                        1
-                    </div>
+                    <div class="number">1</div>
 
                     <h3>
                         🥚 Huevo
                     </h3>
 
                     <p>
-
                         La hembra deposita los huevos
                         en playas arenosas. Después
                         de la incubación nacen las crías.
-
                     </p>
 
                 </div>
@@ -2305,19 +1273,15 @@
 
                 <div class="life-stage">
 
-                    <div class="number">
-                        2
-                    </div>
+                    <div class="number">2</div>
 
                     <h3>
                         🐣 Cría
                     </h3>
 
                     <p>
-
                         Las crías emergen del nido
                         y se desplazan hacia el mar.
-
                     </p>
 
                 </div>
@@ -2325,20 +1289,16 @@
 
                 <div class="life-stage">
 
-                    <div class="number">
-                        3
-                    </div>
+                    <div class="number">3</div>
 
                     <h3>
                         🐢 Juvenil
                     </h3>
 
                     <p>
-
                         Durante su crecimiento utilizan
                         ambientes oceánicos y posteriormente
                         pueden ocupar zonas costeras.
-
                     </p>
 
                 </div>
@@ -2346,19 +1306,15 @@
 
                 <div class="life-stage">
 
-                    <div class="number">
-                        4
-                    </div>
+                    <div class="number">4</div>
 
                     <h3>
                         🐢 Adulta
                     </h3>
 
                     <p>
-
                         Los adultos pueden desplazarse entre
                         áreas de alimentación y reproducción.
-
                     </p>
 
                 </div>
@@ -2366,13 +1322,10 @@
 
             </div>
 
-
         </section>
 
 
-        <!-- =================================================
-             CURIOSIDAD
-        ================================================== -->
+        <!-- ================= CURIOSIDAD ================= -->
 
         <section class="fact">
 
@@ -2385,42 +1338,33 @@
             </h2>
 
             <p>
-
                 El nombre "tortuga verde" se relaciona
                 históricamente con la coloración verdosa
                 de la grasa y algunos tejidos internos,
                 no necesariamente con el color del caparazón.
-
             </p>
 
         </section>
 
 
-        <!-- =================================================
-             AMENAZAS
-        ================================================== -->
+        <!-- ================= AMENAZAS ================= -->
 
         <section
             id="amenazas"
             class="threat-section">
 
-
             <h2>
                 ⚠️ Amenazas para la especie
             </h2>
 
-
             <p>
-
                 La tortuga verde enfrenta diferentes amenazas
                 relacionadas con actividades humanas y cambios
                 ambientales.
-
             </p>
 
 
             <div class="threats">
-
 
                 <div class="threat">
 
@@ -2433,10 +1377,8 @@
                     </strong>
 
                     <span>
-
                         Puede quedar atrapada accidentalmente
                         en equipos de pesca.
-
                     </span>
 
                 </div>
@@ -2453,10 +1395,8 @@
                     </strong>
 
                     <span>
-
                         Los residuos marinos pueden provocar
                         ingestión, enredos y lesiones.
-
                     </span>
 
                 </div>
@@ -2473,11 +1413,9 @@
                     </strong>
 
                     <span>
-
                         La transformación de las costas puede
                         afectar las áreas de alimentación
                         y anidación.
-
                     </span>
 
                 </div>
@@ -2494,10 +1432,8 @@
                     </strong>
 
                     <span>
-
                         Las colisiones pueden causar lesiones
                         graves o la muerte.
-
                     </span>
 
                 </div>
@@ -2514,11 +1450,9 @@
                     </strong>
 
                     <span>
-
                         Los cambios ambientales pueden afectar
                         playas y ecosistemas utilizados por
                         la especie.
-
                     </span>
 
                 </div>
@@ -2535,42 +1469,32 @@
                     </strong>
 
                     <span>
-
                         La extracción de huevos constituye
                         una amenaza en algunas regiones.
-
                     </span>
 
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-        <!-- =================================================
-             PANAMÁ
-        ================================================== -->
+        <!-- ================= PANAMÁ ================= -->
 
         <section
             id="panama"
             class="panama">
 
-
             <h2>
-                 La tortuga verde en Panamá
+                🇵🇦 La tortuga verde en Panamá
             </h2>
 
-
             <p>
-
                 Panamá forma parte del área utilizada por
                 diferentes especies de tortugas marinas,
                 incluida la tortuga verde
                 (<em>Chelonia mydas</em>).
-
             </p>
 
 
@@ -2581,14 +1505,12 @@
                 </strong>
 
                 <p>
-
-                    MI AMBIENTE realiza monitoreo de la
+                    MiAMBIENTE desarrolla monitoreo de la
                     anidación de tortuga verde en el
                     Parque Nacional Coiba, incluyendo
                     registro y marcaje de hembras,
                     conteo de nidos y recopilación
                     de datos biológicos.
-
                 </p>
 
             </div>
@@ -2601,43 +1523,33 @@
                 </strong>
 
                 <p>
-
-                    MI AMBIENTE identifica Playa El Cabezo
+                    MiAMBIENTE identifica Playa El Cabezo
                     de Punta Chame como una zona de
                     anidación donde se ha registrado
                     la tortuga verde.
-
                 </p>
 
             </div>
 
-
         </section>
 
 
-        <!-- =================================================
-             CONSERVACIÓN
-        ================================================== -->
+        <!-- ================= CONSERVACIÓN ================= -->
 
         <section class="conservation">
-
 
             <h2>
                 🛡️ ¿Cómo podemos ayudar a conservarla?
             </h2>
 
-
             <p>
-
                 La conservación requiere proteger las playas
                 de anidación y los ambientes marinos donde
                 las tortugas se alimentan, crecen y migran.
-
             </p>
 
 
             <div class="actions">
-
 
                 <div class="action">
 
@@ -2674,19 +1586,14 @@
 
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-        <!-- =================================================
-             REALIDAD AUMENTADA
-        ================================================== -->
+        <!-- ================= REALIDAD AUMENTADA ================= -->
 
         <section class="ar-guide">
-
 
             <h2>
                 📱 Lleva la tortuga a tu espacio
@@ -2694,7 +1601,6 @@
 
 
             <div class="steps">
-
 
                 <div class="step">
 
@@ -2769,21 +1675,16 @@
 
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-        <!-- =================================================
-             FUENTES
-        ================================================== -->
+        <!-- ================= FUENTES ================= -->
 
         <section
             id="fuentes"
             class="sources">
-
 
             <h2>
                 📚 Fuentes de información
@@ -2792,145 +1693,94 @@
 
             <ul>
 
-
                 <li>
-
                     NOAA Fisheries.
-
                     <a
                         href="https://www.fisheries.noaa.gov/species/green-turtle"
                         target="_blank"
                         rel="noopener noreferrer">
-
                         Green Turtle
-
                     </a>
-
                 </li>
 
 
                 <li>
-
-                    MI AMBIENTE Panamá.
-
+                    MiAMBIENTE Panamá.
                     <a
                         href="https://miambiente.gob.pa/miambiente-monitorea-la-anidacion-de-la-tortuga-verde-en-el-parque-nacional-coiba/"
                         target="_blank"
                         rel="noopener noreferrer">
-
-                        Monitoreo de la anidación de la tortuga
-                        verde en el Parque Nacional Coiba
-
+                        Monitoreo de la anidación de la tortuga verde en el Parque Nacional Coiba
                     </a>
-
                 </li>
 
 
                 <li>
-
-                    MI AMBIENTE Panamá.
-
+                    MiAMBIENTE Panamá.
                     <a
                         href="https://www.miambiente.gob.pa/campana-nacional-de-proteccion-y-conservacion-de-tortugas-marinas/"
                         target="_blank"
                         rel="noopener noreferrer">
-
-                        Campaña Nacional de Protección y
-                        Conservación de Tortugas Marinas
-
+                        Campaña Nacional de Protección y Conservación de Tortugas Marinas
                     </a>
-
                 </li>
 
 
                 <li>
-
                     Leaflet.
-
                     <a
                         href="https://leafletjs.com/"
                         target="_blank"
                         rel="noopener noreferrer">
-
-                        Biblioteca JavaScript utilizada
-                        para el mapa interactivo
-
+                        Biblioteca JavaScript utilizada para el mapa interactivo
                     </a>
-
                 </li>
 
-
             </ul>
-
 
         </section>
 
 
-        <!-- =================================================
-             CRÉDITOS
-        ================================================== -->
+        <!-- ================= CRÉDITOS ================= -->
 
         <section class="credits">
-
 
             <h2>
                 ℹ️ Créditos del modelo 3D
             </h2>
 
-
             <p>
-
                 Modelo 3D:
-                <strong>
-                    "Tortuga"
-                </strong>
+                <strong>"Tortuga"</strong>
                 por
-                <strong>
-                    321cba
-                </strong>.
-
+                <strong>321cba</strong>.
             </p>
 
-
             <p>
-
                 Disponible bajo licencia
-
                 <a
                     href="https://creativecommons.org/licenses/by/4.0/"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     Creative Commons Attribution 4.0
-
                 </a>.
-
             </p>
 
-
             <p>
-
                 <a
                     href="https://sketchfab.com/3d-models/tortuga-854123627dbc44bbb0bd0298dedb3e36"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     Ver modelo original en Sketchfab
-
                 </a>
-
             </p>
 
-
         </section>
-
 
     </main>
 
 
-    <!-- =====================================================
-         PIE DE PÁGINA
-    ====================================================== -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
@@ -2943,64 +1793,56 @@
         </p>
 
         <p>
-            Información basada en fuentes científicas
-            y oficiales.
+            Información basada en fuentes científicas y oficiales.
         </p>
 
     </footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT DEL MAPA
-    ====================================================== -->
+    <!-- ================= MAPA JAVASCRIPT ================= -->
 
     <script>
 
-        /*
-         * =====================================================
-         * MAPA INTERACTIVO
-         * =====================================================
-         *
-         * Leaflet + OpenStreetMap
-         *
-         * Las coordenadas utilizadas son puntos de referencia
-         * para mostrar los sitios en el mapa. No representan
-         * límites de distribución de la especie.
-         */
-
-
         const map = L.map('map');
 
-
-        /*
-         * Capa base de OpenStreetMap
-         */
-
         L.tileLayer(
-
             'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-
             {
-
                 maxZoom: 19,
-
                 attribution:
                     '&copy; OpenStreetMap contributors'
-
             }
-
         ).addTo(map);
 
 
-        /*
-         * =====================================================
-         * MARCADOR 1
-         * PARQUE NACIONAL COIBA
-         * =====================================================
-         */
+        /* ICONO ROJO */
+
+        const iconoRojo = L.divIcon({
+
+            className: "",
+
+            html:
+                '<div class="marcador-rojo"></div>',
+
+            iconSize:
+                [22, 22],
+
+            iconAnchor:
+                [11, 22],
+
+            popupAnchor:
+                [0, -22]
+
+        });
+
+
+        /* ================= COIBA ================= */
 
         const coiba = L.marker(
-            [7.50, -81.75]
+            [7.50, -81.75],
+            {
+                icon: iconoRojo
+            }
         ).addTo(map);
 
 
@@ -3018,14 +1860,15 @@
 
                 <div class="popup-text">
 
-                    MiAMBIENTE desarrolla monitoreo de
-                    la anidación de <em>Chelonia mydas</em>
+                    MiAMBIENTE desarrolla monitoreo
+                    de la anidación de
+                    <em>Chelonia mydas</em>
                     en el Parque Nacional Coiba.
 
                     <br><br>
 
-                    El seguimiento incluye el registro
-                    y marcaje de hembras anidantes,
+                    El seguimiento incluye registro,
+                    marcaje de hembras anidantes,
                     conteo de nidos y recopilación
                     de datos biológicos.
 
@@ -3036,15 +1879,13 @@
         `);
 
 
-        /*
-         * =====================================================
-         * MARCADOR 2
-         * PUNTA CHAME
-         * =====================================================
-         */
+        /* ================= PUNTA CHAME ================= */
 
         const puntaChame = L.marker(
-            [8.615, -79.725]
+            [8.615, -79.725],
+            {
+                icon: iconoRojo
+            }
         ).addTo(map);
 
 
@@ -3075,15 +1916,13 @@
         `);
 
 
-        /*
-         * =====================================================
-         * MARCADOR 3
-         * PLAYA LA MARINERA
-         * =====================================================
-         */
+        /* ================= PLAYA LA MARINERA ================= */
 
         const laMarinera = L.marker(
-            [7.433, -80.000]
+            [7.433, -80.000],
+            {
+                icon: iconoRojo
+            }
         ).addTo(map);
 
 
@@ -3113,48 +1952,30 @@
         `);
 
 
-        /*
-         * =====================================================
-         * VISTA INICIAL
-         * =====================================================
-         */
+        /* ================= VISTA INICIAL ================= */
 
         map.fitBounds(
 
             [
-
                 [7.433, -81.75],
-
                 [8.615, -79.725]
-
             ],
 
             {
-
                 padding:
                     [30, 30]
-
             }
 
         );
 
 
-        /*
-         * =====================================================
-         * CONTROL DE ESCALA
-         * =====================================================
-         */
+        /* ================= ESCALA ================= */
 
         L.control.scale({
-
-            imperial:
-                false
-
+            imperial: false
         }).addTo(map);
 
-
     </script>
-
 
 </body>
 
