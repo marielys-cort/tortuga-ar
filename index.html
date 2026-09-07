@@ -12,7 +12,7 @@
           content="#087f8c">
 
     <meta name="description"
-          content="Experiencia educativa interactiva sobre la tortuga verde (Chelonia mydas), con modelo 3D y realidad aumentada.">
+          content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
 
     <title>
         Tortuga Verde | Chelonia mydas
@@ -20,8 +20,7 @@
 
 
     <!-- =====================================================
-         GOOGLE MODEL VIEWER
-         Permite visualizar el modelo 3D y utilizar AR
+         MODEL VIEWER
     ====================================================== -->
 
     <script
@@ -35,10 +34,6 @@
     ====================================================== -->
 
     <style>
-
-        /* -------------------------------------------------
-           CONFIGURACIÓN GENERAL
-        -------------------------------------------------- */
 
         * {
             box-sizing: border-box;
@@ -60,38 +55,38 @@
                 sans-serif;
 
             background:
-                #f4faf9;
+                #f3faf9;
 
             color:
                 #173b3f;
 
             line-height:
-                1.6;
+                1.65;
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            ENCABEZADO
-        -------------------------------------------------- */
+        ================================================= */
 
         header {
 
             background:
                 linear-gradient(
                     135deg,
-                    #075e67,
-                    #0b8790,
-                    #20a39e
+                    #064f59,
+                    #087f8c,
+                    #21a39d
                 );
 
             color:
                 white;
 
-            padding:
-                55px 20px 65px;
-
             text-align:
                 center;
+
+            padding:
+                65px 20px 75px;
 
             position:
                 relative;
@@ -110,22 +105,22 @@
                 absolute;
 
             width:
-                350px;
+                400px;
 
             height:
-                350px;
+                400px;
 
             border-radius:
                 50%;
 
             background:
-                rgba(255,255,255,0.08);
+                rgba(255,255,255,0.07);
 
             top:
-                -180px;
+                -220px;
 
             left:
-                -100px;
+                -120px;
         }
 
 
@@ -138,22 +133,22 @@
                 absolute;
 
             width:
-                300px;
+                330px;
 
             height:
-                300px;
+                330px;
 
             border-radius:
                 50%;
 
             background:
-                rgba(255,255,255,0.07);
+                rgba(255,255,255,0.06);
 
             bottom:
-                -170px;
+                -200px;
 
             right:
-                -80px;
+                -100px;
         }
 
 
@@ -166,7 +161,7 @@
                 2;
 
             max-width:
-                850px;
+                900px;
 
             margin:
                 auto;
@@ -186,48 +181,48 @@
         header h1 {
 
             font-size:
-                clamp(34px, 7vw, 58px);
+                clamp(36px, 7vw, 60px);
 
-            letter-spacing:
-                1px;
+            line-height:
+                1.1;
 
             margin-bottom:
-                5px;
+                10px;
         }
 
 
         header h2 {
 
             font-size:
-                clamp(20px, 4vw, 28px);
+                clamp(21px, 4vw, 29px);
 
             font-weight:
                 normal;
 
             font-style:
                 italic;
-
-            opacity:
-                0.95;
         }
 
 
         header p {
 
-            margin-top:
-                18px;
+            max-width:
+                750px;
+
+            margin:
+                22px auto 0;
 
             font-size:
                 17px;
 
             opacity:
-                0.9;
+                0.93;
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            NAVEGACIÓN
-        -------------------------------------------------- */
+        ================================================= */
 
         nav {
 
@@ -248,7 +243,7 @@
         }
 
 
-        nav .nav-container {
+        .nav-container {
 
             max-width:
                 1100px;
@@ -269,14 +264,14 @@
 
         nav a {
 
-            color:
-                #17555a;
-
             text-decoration:
                 none;
 
+            color:
+                #17555a;
+
             padding:
-                15px 18px;
+                14px 16px;
 
             font-size:
                 14px;
@@ -291,17 +286,17 @@
 
         nav a:hover {
 
-            color:
-                #0a8a91;
-
             background:
-                #eef8f7;
+                #eaf7f5;
+
+            color:
+                #087f8c;
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            CONTENEDOR
-        -------------------------------------------------- */
+        ================================================= */
 
         .container {
 
@@ -316,9 +311,9 @@
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            INTRODUCCIÓN
-        -------------------------------------------------- */
+        ================================================= */
 
         .intro {
 
@@ -326,17 +321,17 @@
                 center;
 
             padding:
-                55px 10px 25px;
+                60px 10px 30px;
         }
 
 
         .intro h2 {
 
-            font-size:
-                clamp(28px, 5vw, 40px);
-
             color:
                 #075e67;
+
+            font-size:
+                clamp(28px, 5vw, 42px);
 
             margin-bottom:
                 15px;
@@ -346,22 +341,22 @@
         .intro p {
 
             max-width:
-                780px;
+                800px;
 
             margin:
                 auto;
 
             color:
-                #5b7073;
+                #5e7073;
 
             font-size:
                 17px;
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            MODELO 3D
-        -------------------------------------------------- */
+        ================================================= */
 
         .model-section {
 
@@ -379,9 +374,6 @@
 
             margin:
                 25px auto 55px;
-
-            position:
-                relative;
         }
 
 
@@ -391,20 +383,16 @@
                 100%;
 
             height:
-                550px;
+                560px;
 
             background:
                 linear-gradient(
                     180deg,
-                    #e5f3f2,
-                    #f5faf9
+                    #e1f2f1,
+                    #f7fbfa
                 );
         }
 
-
-        /* -------------------------------------------------
-           BOTÓN REALIDAD AUMENTADA
-        -------------------------------------------------- */
 
         #ar-button {
 
@@ -419,6 +407,12 @@
 
             transform:
                 translateX(-50%);
+
+            width:
+                auto;
+
+            min-width:
+                240px;
 
             background:
                 #087f8c;
@@ -461,8 +455,7 @@
                 #05636c;
 
             transform:
-                translateX(-50%)
-                translateY(-2px);
+                translateX(-50%) translateY(-2px);
         }
 
 
@@ -474,22 +467,19 @@
             padding:
                 18px 20px;
 
-            background:
-                white;
-
             color:
-                #667a7d;
+                #657779;
 
             font-size:
                 14px;
         }
 
 
-        /* -------------------------------------------------
-           BOTÓN PRINCIPAL
-        -------------------------------------------------- */
+        /* =================================================
+           BOTONES
+        ================================================= */
 
-        .primary-button {
+        .button {
 
             display:
                 inline-block;
@@ -500,14 +490,14 @@
             color:
                 white;
 
-            padding:
-                14px 25px;
+            text-decoration:
+                none;
 
             border-radius:
                 30px;
 
-            text-decoration:
-                none;
+            padding:
+                14px 25px;
 
             font-weight:
                 bold;
@@ -517,9 +507,9 @@
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            SECCIONES
-        -------------------------------------------------- */
+        ================================================= */
 
         .section {
 
@@ -544,7 +534,7 @@
                 #075e67;
 
             font-size:
-                clamp(27px, 5vw, 37px);
+                clamp(28px, 5vw, 39px);
 
             margin-bottom:
                 8px;
@@ -554,13 +544,13 @@
         .section-title p {
 
             color:
-                #657a7c;
+                #687a7c;
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            TARJETAS
-        -------------------------------------------------- */
+        ================================================= */
 
         .cards {
 
@@ -590,11 +580,10 @@
                 0 6px 22px rgba(0,0,0,0.06);
 
             border:
-                1px solid #e3eeee;
+                1px solid #e0eeee;
 
             transition:
-                transform 0.2s,
-                box-shadow 0.2s;
+                0.2s;
         }
 
 
@@ -611,7 +600,7 @@
         .card-icon {
 
             font-size:
-                34px;
+                35px;
 
             margin-bottom:
                 12px;
@@ -634,13 +623,13 @@
         .card p {
 
             color:
-                #5a6e70;
+                #596d70;
         }
 
 
-        /* -------------------------------------------------
-           CARACTERÍSTICAS DESTACADAS
-        -------------------------------------------------- */
+        /* =================================================
+           DATOS DESTACADOS
+        ================================================= */
 
         .highlights {
 
@@ -654,20 +643,20 @@
                 15px;
 
             margin:
-                30px 0;
+                20px 0 55px;
         }
 
 
         .highlight {
 
             background:
-                #e3f4f2;
+                #e0f3f0;
 
             border-radius:
-                15px;
+                16px;
 
             padding:
-                22px 12px;
+                23px 12px;
 
             text-align:
                 center;
@@ -680,7 +669,7 @@
                 block;
 
             font-size:
-                22px;
+                23px;
 
             color:
                 #075e67;
@@ -693,21 +682,521 @@
                 13px;
 
             color:
-                #627476;
+                #607577;
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
+           DISTRIBUCIÓN
+        ================================================= */
+
+        .distribution {
+
+            background:
+                white;
+
+            border-radius:
+                23px;
+
+            padding:
+                40px;
+
+            box-shadow:
+                0 7px 25px rgba(0,0,0,0.06);
+
+            margin:
+                20px 0 55px;
+        }
+
+
+        .distribution h2 {
+
+            text-align:
+                center;
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .distribution p {
+
+            max-width:
+                850px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
+            color:
+                #596d70;
+        }
+
+
+        .oceans {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+        }
+
+
+        .ocean {
+
+            background:
+                #eef8f7;
+
+            padding:
+                20px;
+
+            border-radius:
+                14px;
+
+            text-align:
+                center;
+
+            color:
+                #17555a;
+
+            font-weight:
+                bold;
+        }
+
+
+        /* =================================================
+           CICLO DE VIDA
+        ================================================= */
+
+        .life-cycle {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+            position:
+                relative;
+
+            margin-top:
+                30px;
+        }
+
+
+        .life-stage {
+
+            background:
+                white;
+
+            border:
+                1px solid #deeceb;
+
+            border-radius:
+                18px;
+
+            padding:
+                25px 15px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.05);
+
+            position:
+                relative;
+        }
+
+
+        .life-stage .number {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            background:
+                #087f8c;
+
+            color:
+                white;
+
+            font-weight:
+                bold;
+
+            margin:
+                0 auto 13px;
+        }
+
+
+        .life-stage h3 {
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .life-stage p {
+
+            color:
+                #627476;
+
+            font-size:
+                14px;
+        }
+
+
+        /* =================================================
+           AMENAZAS
+        ================================================= */
+
+        .threat-section {
+
+            background:
+                #173b3f;
+
+            color:
+                white;
+
+            border-radius:
+                23px;
+
+            padding:
+                45px 35px;
+
+            margin:
+                55px 0;
+        }
+
+
+        .threat-section h2 {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .threat-section > p {
+
+            max-width:
+                800px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
+            opacity:
+                0.9;
+        }
+
+
+        .threats {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                30px;
+        }
+
+
+        .threat {
+
+            background:
+                rgba(255,255,255,0.08);
+
+            padding:
+                22px;
+
+            border-radius:
+                14px;
+
+            text-align:
+                center;
+        }
+
+
+        .threat-icon {
+
+            font-size:
+                30px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .threat strong {
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .threat span {
+
+            font-size:
+                14px;
+
+            opacity:
+                0.88;
+        }
+
+
+        /* =================================================
+           PANAMÁ
+        ================================================= */
+
+        .panama {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e3f4f2,
+                    #f5faf9
+                );
+
+            border:
+                1px solid #cde8e5;
+
+            border-radius:
+                23px;
+
+            padding:
+                45px 35px;
+
+            margin:
+                55px 0;
+        }
+
+
+        .panama h2 {
+
+            text-align:
+                center;
+
+            color:
+                #075e67;
+
+            font-size:
+                32px;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .panama p {
+
+            max-width:
+                850px;
+
+            margin:
+                auto;
+
+            color:
+                #566c6f;
+
+            text-align:
+                center;
+        }
+
+
+        .panama-highlight {
+
+            background:
+                white;
+
+            border-radius:
+                17px;
+
+            padding:
+                25px;
+
+            margin-top:
+                25px;
+
+            text-align:
+                center;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.05);
+        }
+
+
+        .panama-highlight strong {
+
+            color:
+                #087f8c;
+
+            display:
+                block;
+
+            font-size:
+                20px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        /* =================================================
+           CONSERVACIÓN
+        ================================================= */
+
+        .conservation {
+
+            background:
+                white;
+
+            border-radius:
+                23px;
+
+            padding:
+                40px;
+
+            margin:
+                55px 0;
+
+            box-shadow:
+                0 7px 25px rgba(0,0,0,0.06);
+        }
+
+
+        .conservation h2 {
+
+            text-align:
+                center;
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                15px;
+        }
+
+
+        .conservation > p {
+
+            max-width:
+                820px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
+            color:
+                #5d7072;
+        }
+
+
+        .actions {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                28px;
+        }
+
+
+        .action {
+
+            background:
+                #eef8f7;
+
+            padding:
+                20px;
+
+            border-radius:
+                14px;
+
+            text-align:
+                center;
+
+            color:
+                #49676a;
+        }
+
+
+        .action strong {
+
+            display:
+                block;
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                6px;
+        }
+
+
+        /* =================================================
            CURIOSIDAD
-        -------------------------------------------------- */
+        ================================================= */
 
         .fact {
 
             background:
                 linear-gradient(
                     135deg,
-                    #d9f1ef,
-                    #edf9f7
+                    #d7efed,
+                    #eff9f7
                 );
 
             border-radius:
@@ -720,20 +1209,17 @@
                 center;
 
             margin:
-                30px 0 55px;
-
-            border:
-                1px solid #c9e8e5;
+                50px 0;
         }
 
 
-        .fact .fact-icon {
+        .fact-icon {
 
             font-size:
                 42px;
 
             margin-bottom:
-                10px;
+                8px;
         }
 
 
@@ -750,39 +1236,36 @@
         .fact p {
 
             max-width:
-                750px;
+                800px;
 
             margin:
                 auto;
 
             color:
-                #526a6c;
-
-            font-size:
-                17px;
+                #556c6f;
         }
 
 
-        /* -------------------------------------------------
-           REALIDAD AUMENTADA - INSTRUCCIONES
-        -------------------------------------------------- */
+        /* =================================================
+           REALIDAD AUMENTADA
+        ================================================= */
 
         .ar-guide {
 
             background:
-                #ffffff;
+                white;
 
             border-radius:
-                22px;
+                23px;
 
             padding:
-                35px;
+                40px;
+
+            margin:
+                55px 0;
 
             box-shadow:
                 0 7px 25px rgba(0,0,0,0.06);
-
-            margin-bottom:
-                55px;
         }
 
 
@@ -795,7 +1278,7 @@
                 #075e67;
 
             margin-bottom:
-                28px;
+                30px;
         }
 
 
@@ -815,7 +1298,7 @@
         .step {
 
             background:
-                #f1f8f7;
+                #f0f8f7;
 
             padding:
                 20px;
@@ -830,6 +1313,12 @@
 
         .step-number {
 
+            width:
+                40px;
+
+            height:
+                40px;
+
             display:
                 flex;
 
@@ -838,12 +1327,6 @@
 
             justify-content:
                 center;
-
-            width:
-                40px;
-
-            height:
-                40px;
 
             border-radius:
                 50%;
@@ -881,34 +1364,34 @@
                 13px;
 
             color:
-                #647678;
+                #657779;
         }
 
 
-        /* -------------------------------------------------
-           CONSERVACIÓN
-        -------------------------------------------------- */
+        /* =================================================
+           FUENTES
+        ================================================= */
 
-        .conservation {
+        .sources {
 
             background:
-                #173b3f;
-
-            color:
-                white;
+                #f0f7f6;
 
             border-radius:
-                22px;
+                20px;
 
             padding:
-                40px;
+                30px;
 
-            margin-bottom:
-                55px;
+            margin:
+                55px 0 35px;
         }
 
 
-        .conservation h2 {
+        .sources h2 {
+
+            color:
+                #075e67;
 
             text-align:
                 center;
@@ -918,81 +1401,59 @@
         }
 
 
-        .conservation p {
+        .sources ul {
 
             max-width:
-                800px;
+                850px;
 
             margin:
                 auto;
 
-            text-align:
-                center;
-
-            opacity:
-                0.9;
-        }
-
-
-        .threats {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                15px;
-
-            margin-top:
-                25px;
-        }
-
-
-        .threat {
-
-            background:
-                rgba(255,255,255,0.08);
-
-            padding:
+            padding-left:
                 20px;
-
-            border-radius:
-                12px;
-
-            text-align:
-                center;
         }
 
 
-        .threat strong {
-
-            display:
-                block;
+        .sources li {
 
             margin-bottom:
-                5px;
+                10px;
+
+            color:
+                #5b6f71;
+
+            font-size:
+                14px;
         }
 
 
-        /* -------------------------------------------------
+        .sources a {
+
+            color:
+                #087f8c;
+
+            font-weight:
+                bold;
+        }
+
+
+        /* =================================================
            CRÉDITOS
-        -------------------------------------------------- */
+        ================================================= */
 
         .credits {
 
             background:
-                #eef6f5;
+                #e6f2f0;
 
             border-radius:
-                18px;
+                20px;
 
             padding:
-                28px;
+                30px;
 
-            margin-bottom:
-                45px;
+            margin:
+                35px 0 50px;
 
             text-align:
                 center;
@@ -1005,13 +1466,13 @@
         }
 
 
-        .credits h3 {
+        .credits h2 {
 
             color:
                 #075e67;
 
             margin-bottom:
-                10px;
+                12px;
         }
 
 
@@ -1035,9 +1496,9 @@
         }
 
 
-        /* -------------------------------------------------
-           PIE DE PÁGINA
-        -------------------------------------------------- */
+        /* =================================================
+           PIE
+        ================================================= */
 
         footer {
 
@@ -1068,9 +1529,9 @@
         }
 
 
-        /* -------------------------------------------------
+        /* =================================================
            RESPONSIVE
-        -------------------------------------------------- */
+        ================================================= */
 
         @media (max-width: 850px) {
 
@@ -1088,10 +1549,17 @@
             }
 
 
-            .steps {
+            .life-cycle {
 
                 grid-template-columns:
                     repeat(2, 1fr);
+            }
+
+
+            .oceans {
+
+                grid-template-columns:
+                    1fr;
             }
 
 
@@ -1099,6 +1567,20 @@
 
                 grid-template-columns:
                     1fr;
+            }
+
+
+            .actions {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .steps {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
         }
@@ -1109,7 +1591,7 @@
             header {
 
                 padding:
-                    40px 15px 50px;
+                    45px 15px 55px;
             }
 
 
@@ -1123,7 +1605,7 @@
             nav a {
 
                 padding:
-                    11px 10px;
+                    11px 9px;
 
                 font-size:
                     12px;
@@ -1142,18 +1624,29 @@
                 width:
                     88%;
 
-                padding:
-                    15px 10px;
+                min-width:
+                    0;
 
                 font-size:
                     14px;
             }
 
 
-            .highlights {
+            .distribution,
+            .panama,
+            .conservation,
+            .ar-guide,
+            .threat-section {
+
+                padding:
+                    28px 20px;
+            }
+
+
+            .life-cycle {
 
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    1fr;
             }
 
 
@@ -1161,20 +1654,6 @@
 
                 grid-template-columns:
                     1fr;
-            }
-
-
-            .ar-guide {
-
-                padding:
-                    25px 18px;
-            }
-
-
-            .conservation {
-
-                padding:
-                    30px 20px;
             }
 
         }
@@ -1204,12 +1683,15 @@
             </h1>
 
             <h2>
-                Chelonia mydas
+                <em>Chelonia mydas</em>
             </h2>
 
             <p>
-                Explora, conoce y descubre esta especie marina
-                mediante una experiencia interactiva en 3D.
+
+                Explora esta especie marina mediante
+                una experiencia educativa interactiva
+                con visualización 3D y realidad aumentada.
+
             </p>
 
         </div>
@@ -1233,12 +1715,20 @@
                 🌊 Conócela
             </a>
 
-            <a href="#conservacion">
-                🛡️ Conservación
+            <a href="#ciclo">
+                🥚 Ciclo de vida
             </a>
 
-            <a href="#creditos">
-                ℹ️ Créditos
+            <a href="#amenazas">
+                ⚠️ Amenazas
+            </a>
+
+            <a href="#panama">
+                🇵🇦 Panamá
+            </a>
+
+            <a href="#fuentes">
+                📚 Fuentes
             </a>
 
         </div>
@@ -1256,15 +1746,15 @@
         <section class="intro">
 
             <h2>
-                Explora la tortuga verde en 3D
+                Conoce a la tortuga verde
             </h2>
 
             <p>
 
-                Observa el modelo tridimensional desde diferentes
-                ángulos, acércate para conocer sus características
-                y utiliza la realidad aumentada para colocarla
-                virtualmente en tu propio espacio.
+                <em>Chelonia mydas</em> es una tortuga marina
+                de amplia distribución mundial. Los adultos
+                son principalmente herbívoros y se alimentan
+                sobre todo de algas y pastos marinos.
 
             </p>
 
@@ -1284,7 +1774,7 @@
 
                 src="tortuga.glb"
 
-                alt="Modelo 3D de una tortuga verde (Chelonia mydas)"
+                alt="Modelo 3D de una tortuga verde Chelonia mydas"
 
                 camera-controls
 
@@ -1329,10 +1819,6 @@
                 ">
 
 
-                <!-- =========================================
-                     BOTÓN AR
-                ========================================== -->
-
                 <button
                     slot="ar-button"
                     id="ar-button">
@@ -1348,14 +1834,10 @@
             <div class="model-controls">
 
                 👆 Arrastra para girar
-
                 &nbsp; · &nbsp;
-
                 🔍 Pellizca para acercar o alejar
-
                 &nbsp; · &nbsp;
-
-                🔄 El modelo gira automáticamente
+                🔄 Rotación automática
 
             </div>
 
@@ -1364,7 +1846,7 @@
 
 
         <!-- =================================================
-             DESTACADOS
+             DATOS DESTACADOS
         ================================================== -->
 
         <div class="highlights">
@@ -1373,11 +1855,11 @@
             <div class="highlight">
 
                 <strong>
-                    1
+                    <em>Chelonia mydas</em>
                 </strong>
 
                 <span>
-                    Especie marina
+                    Nombre científico
                 </span>
 
             </div>
@@ -1386,11 +1868,11 @@
             <div class="highlight">
 
                 <strong>
-                    🌊
+                    🌎
                 </strong>
 
                 <span>
-                    Ambientes oceánicos y costeros
+                    Distribución mundial
                 </span>
 
             </div>
@@ -1399,11 +1881,11 @@
             <div class="highlight">
 
                 <strong>
-                    🥚
+                    🥬
                 </strong>
 
                 <span>
-                    Se reproduce mediante huevos
+                    Adultos principalmente herbívoros
                 </span>
 
             </div>
@@ -1412,11 +1894,11 @@
             <div class="highlight">
 
                 <strong>
-                    🛡️
+                    🐢
                 </strong>
 
                 <span>
-                    Requiere conservación
+                    Tortuga marina de caparazón duro
                 </span>
 
             </div>
@@ -1437,11 +1919,11 @@
             <div class="section-title">
 
                 <h2>
-                    🌊 Conoce a la tortuga verde
+                    🌊 Conoce a la especie
                 </h2>
 
                 <p>
-                    Algunas características importantes de
+                    Características principales de
                     <em>Chelonia mydas</em>
                 </p>
 
@@ -1450,60 +1932,6 @@
 
             <div class="cards">
 
-
-                <!-- HÁBITAT -->
-
-                <div class="card">
-
-                    <div class="card-icon">
-                        🌊
-                    </div>
-
-                    <h3>
-                        Hábitat
-                    </h3>
-
-                    <p>
-
-                        La tortuga verde utiliza diferentes
-                        ambientes marinos durante su vida.
-                        Puede encontrarse en zonas costeras,
-                        aguas poco profundas, arrecifes,
-                        praderas de pastos marinos y otras
-                        áreas donde encuentra alimento y refugio.
-
-                    </p>
-
-                </div>
-
-
-                <!-- ALIMENTACIÓN -->
-
-                <div class="card">
-
-                    <div class="card-icon">
-                        🥬
-                    </div>
-
-                    <h3>
-                        Alimentación
-                    </h3>
-
-                    <p>
-
-                        Los individuos adultos de la tortuga
-                        verde presentan una alimentación
-                        principalmente herbívora, consumiendo
-                        principalmente pastos marinos y algas.
-                        Los hábitos alimentarios pueden variar
-                        durante las diferentes etapas de su vida.
-
-                    </p>
-
-                </div>
-
-
-                <!-- CARACTERÍSTICAS -->
 
                 <div class="card">
 
@@ -1517,84 +1945,249 @@
 
                     <p>
 
-                        Se caracteriza por presentar un
-                        caparazón y extremidades adaptadas
-                        para desplazarse en el medio marino.
-                        Su cuerpo tiene una forma hidrodinámica
-                        que facilita el desplazamiento en el agua.
+                        La tortuga verde es la especie de
+                        tortuga marina de caparazón duro más
+                        grande. Los adultos presentan un
+                        caparazón generalmente oscuro, gris,
+                        marrón u oliváceo y un cuerpo adaptado
+                        al desplazamiento en el océano.
 
                     </p>
 
                 </div>
 
 
-                <!-- DISTRIBUCIÓN -->
-
                 <div class="card">
 
                     <div class="card-icon">
-                        🌎
+                        🥬
                     </div>
 
                     <h3>
-                        Distribución
+                        Alimentación
                     </h3>
 
                     <p>
 
-                        La especie tiene una amplia distribución
-                        en regiones tropicales y subtropicales
-                        de los océanos. Realiza desplazamientos
-                        entre diferentes áreas de alimentación,
-                        reproducción y desarrollo.
+                        Los adultos son principalmente
+                        herbívoros. Su alimentación incluye
+                        principalmente algas y pastos marinos,
+                        aunque los juveniles pueden consumir
+                        también otros organismos disponibles
+                        en el ambiente.
 
                     </p>
 
                 </div>
 
 
-                <!-- REPRODUCCIÓN -->
-
                 <div class="card">
 
                     <div class="card-icon">
-                        🥚
+                        🌊
                     </div>
 
                     <h3>
-                        Reproducción
+                        Hábitat
                     </h3>
 
                     <p>
 
-                        Las hembras regresan a playas adecuadas
-                        para depositar sus huevos. Después de
-                        la incubación, las crías emergen del nido
-                        y se dirigen hacia el mar.
+                        Utiliza diferentes ambientes durante
+                        su vida. Los juveniles pueden pasar
+                        varios años en zonas oceánicas y,
+                        posteriormente, desplazarse hacia
+                        áreas costeras poco profundas donde
+                        encuentran alimento.
 
                     </p>
 
                 </div>
 
 
-                <!-- CICLO DE VIDA -->
-
                 <div class="card">
 
                     <div class="card-icon">
-                        🔄
+                        🧭
                     </div>
 
                     <h3>
-                        Ciclo de vida
+                        Migración
                     </h3>
 
                     <p>
 
-                        Durante su vida atraviesa diferentes
-                        etapas de desarrollo y puede recorrer
-                        grandes distancias entre sus áreas de
-                        alimentación y reproducción.
+                        Las tortugas verdes pueden recorrer
+                        cientos o miles de kilómetros entre
+                        sus áreas de alimentación y sus playas
+                        de reproducción.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             DISTRIBUCIÓN
+        ================================================== -->
+
+        <section class="distribution">
+
+
+            <h2>
+                🌎 ¿Dónde vive?
+            </h2>
+
+
+            <p>
+
+                La tortuga verde se encuentra en diferentes
+                regiones del mundo, principalmente en zonas
+                tropicales y subtropicales de los océanos
+                Atlántico, Pacífico e Índico. También utiliza
+                zonas costeras para alimentarse y playas
+                para reproducirse.
+
+            </p>
+
+
+            <div class="oceans">
+
+
+                <div class="ocean">
+                    🌊 Océano Atlántico
+                </div>
+
+
+                <div class="ocean">
+                    🌊 Océano Pacífico
+                </div>
+
+
+                <div class="ocean">
+                    🌊 Océano Índico
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CICLO DE VIDA
+        ================================================== -->
+
+        <section
+            id="ciclo"
+            class="section">
+
+
+            <div class="section-title">
+
+                <h2>
+                    🥚 Ciclo de vida
+                </h2>
+
+                <p>
+                    Una vida marcada por grandes desplazamientos
+                </p>
+
+            </div>
+
+
+            <div class="life-cycle">
+
+
+                <div class="life-stage">
+
+                    <div class="number">
+                        1
+                    </div>
+
+                    <h3>
+                        🥚 Huevo
+                    </h3>
+
+                    <p>
+
+                        La hembra deposita los huevos
+                        en playas arenosas. Después de
+                        aproximadamente dos meses de
+                        incubación, nacen las crías.
+
+                    </p>
+
+                </div>
+
+
+                <div class="life-stage">
+
+                    <div class="number">
+                        2
+                    </div>
+
+                    <h3>
+                        🐣 Cría
+                    </h3>
+
+                    <p>
+
+                        Las crías emergen del nido y se
+                        desplazan hacia el mar. Durante
+                        esta etapa utilizan ambientes
+                        oceánicos.
+
+                    </p>
+
+                </div>
+
+
+                <div class="life-stage">
+
+                    <div class="number">
+                        3
+                    </div>
+
+                    <h3>
+                        🐢 Juvenil
+                    </h3>
+
+                    <p>
+
+                        Con el crecimiento, los juveniles
+                        pueden desplazarse hacia zonas
+                        costeras poco profundas donde
+                        encuentran alimento.
+
+                    </p>
+
+                </div>
+
+
+                <div class="life-stage">
+
+                    <div class="number">
+                        4
+                    </div>
+
+                    <h3>
+                        🐢 Adulta
+                    </h3>
+
+                    <p>
+
+                        Los adultos pueden migrar entre
+                        zonas de alimentación y áreas
+                        reproductivas. Las hembras regresan
+                        a playas de anidación.
 
                     </p>
 
@@ -1623,12 +2216,305 @@
 
             <p>
 
-                La tortuga verde recibe su nombre común por
-                la coloración verdosa de la grasa y tejidos
-                internos de algunos individuos, y no porque
-                necesariamente su caparazón sea completamente verde.
+                El nombre "tortuga verde" se relaciona con
+                la coloración verdosa de la grasa y algunos
+                tejidos internos, no necesariamente con el
+                color de su caparazón.
 
             </p>
+
+        </section>
+
+
+        <!-- =================================================
+             AMENAZAS
+        ================================================== -->
+
+        <section
+            id="amenazas"
+            class="threat-section">
+
+
+            <h2>
+                ⚠️ Amenazas para la especie
+            </h2>
+
+
+            <p>
+
+                La tortuga verde enfrenta diferentes amenazas
+                relacionadas con las actividades humanas y
+                los cambios ambientales.
+
+            </p>
+
+
+            <div class="threats">
+
+
+                <div class="threat">
+
+                    <div class="threat-icon">
+                        🎣
+                    </div>
+
+                    <strong>
+                        Captura incidental
+                    </strong>
+
+                    <span>
+
+                        Las tortugas pueden quedar atrapadas
+                        accidentalmente en redes, anzuelos y
+                        otros equipos de pesca.
+
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <div class="threat-icon">
+                        🗑️
+                    </div>
+
+                    <strong>
+                        Contaminación
+                    </strong>
+
+                    <span>
+
+                        Los residuos marinos pueden ser
+                        ingeridos o provocar enredos y lesiones.
+
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <div class="threat-icon">
+                        🏖️
+                    </div>
+
+                    <strong>
+                        Pérdida de playas
+                    </strong>
+
+                    <span>
+
+                        El desarrollo costero puede reducir
+                        o degradar las áreas utilizadas para
+                        la anidación.
+
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <div class="threat-icon">
+                        🚤
+                    </div>
+
+                    <strong>
+                        Embarcaciones
+                    </strong>
+
+                    <span>
+
+                        Las colisiones con embarcaciones
+                        pueden provocar lesiones graves
+                        o la muerte.
+
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <div class="threat-icon">
+                        🌡️
+                    </div>
+
+                    <strong>
+                        Cambio ambiental
+                    </strong>
+
+                    <span>
+
+                        El aumento de temperaturas, el
+                        aumento del nivel del mar y los
+                        cambios en las playas pueden afectar
+                        la reproducción y el hábitat.
+
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <div class="threat-icon">
+                        🥚
+                    </div>
+
+                    <strong>
+                        Extracción de huevos
+                    </strong>
+
+                    <span>
+
+                        La extracción y consumo de huevos
+                        continúa siendo una amenaza en
+                        algunas regiones.
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             PANAMÁ
+        ================================================== -->
+
+        <section
+            id="panama"
+            class="panama">
+
+
+            <h2>
+                🇵🇦 La tortuga verde en Panamá
+            </h2>
+
+
+            <p>
+
+                Panamá es visitado por cinco especies de
+                tortugas marinas, entre ellas la tortuga verde
+                o prieta (<em>Chelonia mydas</em>). El país
+                cuenta con importantes áreas de anidación
+                y alimentación para las tortugas marinas.
+
+            </p>
+
+
+            <div class="panama-highlight">
+
+                <strong>
+                    🏝️ Parque Nacional Coiba
+                </strong>
+
+                <p>
+
+                    MiAMBIENTE desarrolla un programa de
+                    monitoreo de la anidación de la tortuga
+                    verde en el Parque Nacional Coiba.
+                    El seguimiento incluye el registro y
+                    marcaje de hembras anidantes, el conteo
+                    de nidos y la recopilación de datos
+                    biológicos.
+
+                </p>
+
+            </div>
+
+
+            <div class="panama-highlight">
+
+                <strong>
+                    🌊 Importancia de Panamá
+                </strong>
+
+                <p>
+
+                    Las costas panameñas forman parte de las
+                    rutas y ambientes utilizados por las
+                    tortugas marinas. La protección de sus
+                    playas, aguas costeras y ecosistemas
+                    marinos contribuye a su conservación.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CONSERVACIÓN
+        ================================================== -->
+
+        <section class="conservation">
+
+
+            <h2>
+                🛡️ ¿Cómo podemos ayudar a conservarla?
+            </h2>
+
+
+            <p>
+
+                La conservación requiere proteger tanto las
+                playas de anidación como los ambientes
+                marinos donde las tortugas se alimentan,
+                crecen y migran.
+
+            </p>
+
+
+            <div class="actions">
+
+
+                <div class="action">
+
+                    <strong>
+                        🗑️ Reducir residuos
+                    </strong>
+
+                    Evitar que plásticos y otros residuos
+                    lleguen al mar.
+
+                </div>
+
+
+                <div class="action">
+
+                    <strong>
+                        🏖️ Proteger las playas
+                    </strong>
+
+                    Respetar los espacios de anidación
+                    y evitar alteraciones innecesarias.
+
+                </div>
+
+
+                <div class="action">
+
+                    <strong>
+                        🌊 Cuidar el océano
+                    </strong>
+
+                    Promover prácticas responsables y
+                    proteger los ecosistemas marinos.
+
+                </div>
+
+
+            </div>
+
 
         </section>
 
@@ -1638,6 +2524,7 @@
         ================================================== -->
 
         <section class="ar-guide">
+
 
             <h2>
                 📱 Lleva la tortuga a tu espacio
@@ -1659,9 +2546,7 @@
 
                     <p>
                         Selecciona
-                        <strong>
-                            "VER EN MI ESPACIO"
-                        </strong>
+                        "VER EN MI ESPACIO"
                         en el modelo 3D.
                     </p>
 
@@ -1675,12 +2560,12 @@
                     </div>
 
                     <strong>
-                        Activa la cámara
+                        Permite la cámara
                     </strong>
 
                     <p>
-                        Permite que el navegador
-                        utilice la cámara del dispositivo.
+                        Autoriza el acceso a la cámara
+                        cuando el dispositivo lo solicite.
                     </p>
 
                 </div>
@@ -1693,12 +2578,12 @@
                     </div>
 
                     <strong>
-                        Busca una superficie
+                        Detecta una superficie
                     </strong>
 
                     <p>
-                        Apunta hacia el suelo o
-                        una superficie adecuada.
+                        Apunta la cámara hacia el suelo
+                        u otra superficie adecuada.
                     </p>
 
                 </div>
@@ -1715,8 +2600,8 @@
                     </strong>
 
                     <p>
-                        Coloca la tortuga y muévete
-                        alrededor para observarla.
+                        Coloca la tortuga, cambia su tamaño
+                        y muévete alrededor para observarla.
                     </p>
 
                 </div>
@@ -1724,98 +2609,97 @@
 
             </div>
 
+
         </section>
 
 
         <!-- =================================================
-             CONSERVACIÓN
+             FUENTES
         ================================================== -->
 
         <section
-            id="conservacion"
-            class="conservation">
+            id="fuentes"
+            class="sources">
 
 
             <h2>
-                🛡️ ¿Por qué debemos protegerla?
+                📚 Fuentes de información
             </h2>
 
 
-            <p>
-
-                Las tortugas marinas enfrentan diversas
-                amenazas relacionadas con las actividades
-                humanas y los cambios en sus ecosistemas.
-                La conservación de sus hábitats y la reducción
-                de impactos humanos son elementos importantes
-                para favorecer la supervivencia de sus poblaciones.
-
-            </p>
+            <ul>
 
 
-            <div class="threats">
+                <li>
+
+                    NOAA Fisheries.
+                    <a
+                        href="https://www.fisheries.noaa.gov/species/green-turtle"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        Green Turtle
+                    </a>
+
+                    Información sobre biología,
+                    distribución, ciclo de vida,
+                    amenazas y conservación.
+
+                </li>
 
 
-                <div class="threat">
+                <li>
 
-                    <strong>
-                        🌊 Contaminación
-                    </strong>
+                    MiAMBIENTE Panamá.
+                    <a
+                        href="https://miambiente.gob.pa/miambiente-monitorea-la-anidacion-de-la-tortuga-verde-en-el-parque-nacional-coiba/"
+                        target="_blank"
+                        rel="noopener noreferrer">
 
-                    <span>
-                        Residuos y contaminación marina
-                        pueden afectar sus ecosistemas.
-                    </span>
+                        Monitoreo de la anidación de la
+                        tortuga verde en el Parque Nacional Coiba
+                    </a>
 
-                </div>
+                    Información sobre monitoreo de
+                    <em>Chelonia mydas</em> en Panamá.
 
-
-                <div class="threat">
-
-                    <strong>
-                        🎣 Captura accidental
-                    </strong>
-
-                    <span>
-                        Algunas actividades pesqueras
-                        pueden afectar a las tortugas.
-                    </span>
-
-                </div>
+                </li>
 
 
-                <div class="threat">
+                <li>
 
-                    <strong>
-                        🏖️ Pérdida de hábitat
-                    </strong>
+                    MiAMBIENTE Panamá.
+                    <a
+                        href="https://miambiente.gob.pa/la-migracion-ancestral-de-las-tortugas-marinas-hacia-las-costas-de-panama/"
+                        target="_blank"
+                        rel="noopener noreferrer">
 
-                    <span>
-                        La modificación de zonas costeras
-                        puede afectar sus ciclos de vida.
-                    </span>
+                        La migración ancestral de las
+                        tortugas marinas hacia las costas de Panamá
+                    </a>
 
-                </div>
+                    Información sobre las especies de
+                    tortugas marinas presentes en Panamá.
+
+                </li>
 
 
-            </div>
+            </ul>
 
 
         </section>
 
 
         <!-- =================================================
-             CRÉDITOS
+             CRÉDITOS DEL MODELO
         ================================================== -->
 
-        <section
-            id="creditos"
-            class="credits">
+        <section class="credits">
 
 
-            <h3>
+            <h2>
                 ℹ️ Créditos del modelo 3D
-            </h3>
+            </h2>
 
 
             <p>
@@ -1875,7 +2759,7 @@
     <footer>
 
         <p>
-            🐢 Experiencia educativa interactiva
+            🐢 Experiencia educativa 3D y realidad aumentada
         </p>
 
         <p>
@@ -1883,8 +2767,8 @@
         </p>
 
         <p>
-            Modelo 3D utilizado bajo licencia
-            Creative Commons Attribution 4.0.
+            Información basada en fuentes científicas
+            y oficiales.
         </p>
 
     </footer>
