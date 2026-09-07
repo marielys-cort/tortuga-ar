@@ -5,11 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color"
-          content="#087f8c">
+    <meta name="theme-color" content="#087f8c">
 
     <meta name="description"
           content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
@@ -26,6 +24,23 @@
     <script
         type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+
+
+    <!-- =====================================================
+         LEAFLET - MAPA INTERACTIVO
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin=""
+    />
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        crossorigin="">
     </script>
 
 
@@ -312,7 +327,7 @@
 
 
         /* =================================================
-           INTRODUCCIÓN
+           INTRO
         ================================================= */
 
         .intro {
@@ -476,34 +491,61 @@
 
 
         /* =================================================
-           BOTONES
+           DATOS
         ================================================= */
 
-        .button {
+        .highlights {
 
             display:
-                inline-block;
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+            margin:
+                20px 0 55px;
+        }
+
+
+        .highlight {
 
             background:
-                #087f8c;
-
-            color:
-                white;
-
-            text-decoration:
-                none;
+                #e0f3f0;
 
             border-radius:
-                30px;
+                16px;
 
             padding:
-                14px 25px;
+                23px 12px;
 
-            font-weight:
-                bold;
+            text-align:
+                center;
+        }
 
-            margin-top:
-                20px;
+
+        .highlight strong {
+
+            display:
+                block;
+
+            font-size:
+                23px;
+
+            color:
+                #075e67;
+        }
+
+
+        .highlight span {
+
+            font-size:
+                13px;
+
+            color:
+                #607577;
         }
 
 
@@ -628,61 +670,160 @@
 
 
         /* =================================================
-           DATOS DESTACADOS
+           MAPA
         ================================================= */
 
-        .highlights {
+        .map-section {
 
-            display:
-                grid;
+            background:
+                white;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+            border-radius:
+                25px;
 
-            gap:
-                15px;
+            padding:
+                35px;
 
             margin:
-                20px 0 55px;
+                25px 0 55px;
+
+            box-shadow:
+                0 8px 28px rgba(0,0,0,0.07);
         }
 
 
-        .highlight {
-
-            background:
-                #e0f3f0;
-
-            border-radius:
-                16px;
-
-            padding:
-                23px 12px;
+        .map-title {
 
             text-align:
                 center;
+
+            margin-bottom:
+                12px;
         }
 
 
-        .highlight strong {
-
-            display:
-                block;
-
-            font-size:
-                23px;
+        .map-title h2 {
 
             color:
                 #075e67;
+
+            font-size:
+                32px;
+
+            margin-bottom:
+                8px;
         }
 
 
-        .highlight span {
+        .map-title p {
+
+            max-width:
+                800px;
+
+            margin:
+                auto;
+
+            color:
+                #657779;
+        }
+
+
+        #map {
+
+            width:
+                100%;
+
+            height:
+                500px;
+
+            margin-top:
+                25px;
+
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid #d7e9e7;
+        }
+
+
+        .map-note {
+
+            background:
+                #eef8f7;
+
+            border-radius:
+                12px;
+
+            padding:
+                15px;
+
+            margin-top:
+                15px;
+
+            text-align:
+                center;
+
+            color:
+                #587174;
+
+            font-size:
+                13px;
+        }
+
+
+        .leaflet-popup-content-wrapper {
+
+            border-radius:
+                14px;
+        }
+
+
+        .popup-title {
+
+            color:
+                #075e67;
+
+            font-size:
+                17px;
+
+            font-weight:
+                bold;
+
+            margin-bottom:
+                6px;
+        }
+
+
+        .popup-type {
+
+            color:
+                #087f8c;
+
+            font-weight:
+                bold;
 
             font-size:
                 13px;
 
+            margin-bottom:
+                6px;
+        }
+
+
+        .popup-text {
+
             color:
-                #607577;
+                #596d70;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.5;
         }
 
 
@@ -693,16 +834,13 @@
         .distribution {
 
             background:
-                white;
+                #f0f8f7;
 
             border-radius:
                 23px;
 
             padding:
                 40px;
-
-            box-shadow:
-                0 7px 25px rgba(0,0,0,0.06);
 
             margin:
                 20px 0 55px;
@@ -757,7 +895,7 @@
         .ocean {
 
             background:
-                #eef8f7;
+                white;
 
             padding:
                 20px;
@@ -773,6 +911,9 @@
 
             font-weight:
                 bold;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.04);
         }
 
 
@@ -790,9 +931,6 @@
 
             gap:
                 15px;
-
-            position:
-                relative;
 
             margin-top:
                 30px;
@@ -818,9 +956,6 @@
 
             box-shadow:
                 0 5px 18px rgba(0,0,0,0.05);
-
-            position:
-                relative;
         }
 
 
@@ -875,6 +1010,66 @@
 
             font-size:
                 14px;
+        }
+
+
+        /* =================================================
+           CURIOSIDAD
+        ================================================= */
+
+        .fact {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d7efed,
+                    #eff9f7
+                );
+
+            border-radius:
+                22px;
+
+            padding:
+                38px 30px;
+
+            text-align:
+                center;
+
+            margin:
+                50px 0;
+        }
+
+
+        .fact-icon {
+
+            font-size:
+                42px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .fact h2 {
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .fact p {
+
+            max-width:
+                800px;
+
+            margin:
+                auto;
+
+            color:
+                #556c6f;
         }
 
 
@@ -1187,66 +1382,6 @@
 
 
         /* =================================================
-           CURIOSIDAD
-        ================================================= */
-
-        .fact {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #d7efed,
-                    #eff9f7
-                );
-
-            border-radius:
-                22px;
-
-            padding:
-                38px 30px;
-
-            text-align:
-                center;
-
-            margin:
-                50px 0;
-        }
-
-
-        .fact-icon {
-
-            font-size:
-                42px;
-
-            margin-bottom:
-                8px;
-        }
-
-
-        .fact h2 {
-
-            color:
-                #075e67;
-
-            margin-bottom:
-                10px;
-        }
-
-
-        .fact p {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-            color:
-                #556c6f;
-        }
-
-
-        /* =================================================
            REALIDAD AUMENTADA
         ================================================= */
 
@@ -1489,15 +1624,8 @@
         }
 
 
-        .credits a:hover {
-
-            text-decoration:
-                underline;
-        }
-
-
         /* =================================================
-           PIE
+           FOOTER
         ================================================= */
 
         footer {
@@ -1632,6 +1760,20 @@
             }
 
 
+            .map-section {
+
+                padding:
+                    22px 15px;
+            }
+
+
+            #map {
+
+                height:
+                    430px;
+            }
+
+
             .distribution,
             .panama,
             .conservation,
@@ -1690,7 +1832,8 @@
 
                 Explora esta especie marina mediante
                 una experiencia educativa interactiva
-                con visualización 3D y realidad aumentada.
+                con visualización 3D, mapa interactivo
+                y realidad aumentada.
 
             </p>
 
@@ -1715,6 +1858,10 @@
                 🌊 Conócela
             </a>
 
+            <a href="#mapa">
+                🗺️ Mapa
+            </a>
+
             <a href="#ciclo">
                 🥚 Ciclo de vida
             </a>
@@ -1727,10 +1874,6 @@
                 🇵🇦 Panamá
             </a>
 
-            <a href="#fuentes">
-                📚 Fuentes
-            </a>
-
         </div>
 
     </nav>
@@ -1740,7 +1883,7 @@
 
 
         <!-- =================================================
-             INTRODUCCIÓN
+             INTRO
         ================================================== -->
 
         <section class="intro">
@@ -1898,7 +2041,7 @@
                 </strong>
 
                 <span>
-                    Tortuga marina de caparazón duro
+                    Tortuga marina
                 </span>
 
             </div>
@@ -1908,7 +2051,7 @@
 
 
         <!-- =================================================
-             CONOCE A LA ESPECIE
+             CONOCE
         ================================================== -->
 
         <section
@@ -1945,12 +2088,11 @@
 
                     <p>
 
-                        La tortuga verde es la especie de
-                        tortuga marina de caparazón duro más
-                        grande. Los adultos presentan un
-                        caparazón generalmente oscuro, gris,
-                        marrón u oliváceo y un cuerpo adaptado
-                        al desplazamiento en el océano.
+                        La tortuga verde es una tortuga marina
+                        de caparazón duro. Los adultos presentan
+                        una coloración variable en el caparazón,
+                        mientras que su cuerpo está adaptado
+                        para desplazarse por el océano.
 
                     </p>
 
@@ -1970,11 +2112,8 @@
                     <p>
 
                         Los adultos son principalmente
-                        herbívoros. Su alimentación incluye
-                        principalmente algas y pastos marinos,
-                        aunque los juveniles pueden consumir
-                        también otros organismos disponibles
-                        en el ambiente.
+                        herbívoros y consumen principalmente
+                        algas y pastos marinos.
 
                     </p>
 
@@ -1994,11 +2133,9 @@
                     <p>
 
                         Utiliza diferentes ambientes durante
-                        su vida. Los juveniles pueden pasar
-                        varios años en zonas oceánicas y,
-                        posteriormente, desplazarse hacia
+                        su vida, desde zonas oceánicas hasta
                         áreas costeras poco profundas donde
-                        encuentran alimento.
+                        puede alimentarse.
 
                     </p>
 
@@ -2017,15 +2154,63 @@
 
                     <p>
 
-                        Las tortugas verdes pueden recorrer
-                        cientos o miles de kilómetros entre
-                        sus áreas de alimentación y sus playas
-                        de reproducción.
+                        Puede realizar desplazamientos entre
+                        áreas de alimentación y zonas de
+                        reproducción.
 
                     </p>
 
                 </div>
 
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             MAPA INTERACTIVO
+        ================================================== -->
+
+        <section
+            id="mapa"
+            class="map-section">
+
+
+            <div class="map-title">
+
+                <h2>
+                    🗺️ Tortuga verde en Panamá
+                </h2>
+
+                <p>
+
+                    Explora algunos sitios panameños
+                    documentados en fuentes oficiales
+                    en relación con la presencia o
+                    anidación de tortugas marinas,
+                    incluida <em>Chelonia mydas</em>.
+
+                </p>
+
+            </div>
+
+
+            <div id="map"></div>
+
+
+            <div class="map-note">
+
+                📍 Toca un marcador para conocer
+                la información disponible sobre
+                ese sitio.
+
+                <br>
+
+                El mapa muestra ubicaciones de referencia
+                documentadas y no representa el límite
+                completo de distribución de la especie.
 
             </div>
 
@@ -2041,18 +2226,17 @@
 
 
             <h2>
-                🌎 ¿Dónde vive?
+                🌎 Distribución mundial
             </h2>
 
 
             <p>
 
-                La tortuga verde se encuentra en diferentes
-                regiones del mundo, principalmente en zonas
-                tropicales y subtropicales de los océanos
-                Atlántico, Pacífico e Índico. También utiliza
-                zonas costeras para alimentarse y playas
-                para reproducirse.
+                La tortuga verde se encuentra en regiones
+                tropicales y subtropicales de diferentes
+                océanos. Su ciclo de vida puede implicar
+                desplazamientos entre zonas de alimentación
+                y playas de reproducción.
 
             </p>
 
@@ -2119,9 +2303,8 @@
                     <p>
 
                         La hembra deposita los huevos
-                        en playas arenosas. Después de
-                        aproximadamente dos meses de
-                        incubación, nacen las crías.
+                        en playas arenosas. Después
+                        de la incubación nacen las crías.
 
                     </p>
 
@@ -2140,10 +2323,8 @@
 
                     <p>
 
-                        Las crías emergen del nido y se
-                        desplazan hacia el mar. Durante
-                        esta etapa utilizan ambientes
-                        oceánicos.
+                        Las crías emergen del nido
+                        y se desplazan hacia el mar.
 
                     </p>
 
@@ -2162,10 +2343,9 @@
 
                     <p>
 
-                        Con el crecimiento, los juveniles
-                        pueden desplazarse hacia zonas
-                        costeras poco profundas donde
-                        encuentran alimento.
+                        Durante su crecimiento utilizan
+                        ambientes oceánicos y posteriormente
+                        pueden ocupar zonas costeras.
 
                     </p>
 
@@ -2184,10 +2364,8 @@
 
                     <p>
 
-                        Los adultos pueden migrar entre
-                        zonas de alimentación y áreas
-                        reproductivas. Las hembras regresan
-                        a playas de anidación.
+                        Los adultos pueden desplazarse entre
+                        áreas de alimentación y reproducción.
 
                     </p>
 
@@ -2216,10 +2394,10 @@
 
             <p>
 
-                El nombre "tortuga verde" se relaciona con
-                la coloración verdosa de la grasa y algunos
-                tejidos internos, no necesariamente con el
-                color de su caparazón.
+                El nombre "tortuga verde" se relaciona
+                históricamente con la coloración verdosa
+                de la grasa y algunos tejidos internos,
+                no necesariamente con el color del caparazón.
 
             </p>
 
@@ -2243,8 +2421,8 @@
             <p>
 
                 La tortuga verde enfrenta diferentes amenazas
-                relacionadas con las actividades humanas y
-                los cambios ambientales.
+                relacionadas con actividades humanas y cambios
+                ambientales.
 
             </p>
 
@@ -2264,9 +2442,8 @@
 
                     <span>
 
-                        Las tortugas pueden quedar atrapadas
-                        accidentalmente en redes, anzuelos y
-                        otros equipos de pesca.
+                        Puede quedar atrapada accidentalmente
+                        en equipos de pesca.
 
                     </span>
 
@@ -2285,8 +2462,8 @@
 
                     <span>
 
-                        Los residuos marinos pueden ser
-                        ingeridos o provocar enredos y lesiones.
+                        Los residuos marinos pueden provocar
+                        ingestión, enredos y lesiones.
 
                     </span>
 
@@ -2300,14 +2477,14 @@
                     </div>
 
                     <strong>
-                        Pérdida de playas
+                        Pérdida de hábitat
                     </strong>
 
                     <span>
 
-                        El desarrollo costero puede reducir
-                        o degradar las áreas utilizadas para
-                        la anidación.
+                        La transformación de las costas puede
+                        afectar las áreas de alimentación
+                        y anidación.
 
                     </span>
 
@@ -2326,9 +2503,8 @@
 
                     <span>
 
-                        Las colisiones con embarcaciones
-                        pueden provocar lesiones graves
-                        o la muerte.
+                        Las colisiones pueden causar lesiones
+                        graves o la muerte.
 
                     </span>
 
@@ -2342,15 +2518,14 @@
                     </div>
 
                     <strong>
-                        Cambio ambiental
+                        Cambio climático
                     </strong>
 
                     <span>
 
-                        El aumento de temperaturas, el
-                        aumento del nivel del mar y los
-                        cambios en las playas pueden afectar
-                        la reproducción y el hábitat.
+                        Los cambios ambientales pueden afectar
+                        playas y ecosistemas utilizados por
+                        la especie.
 
                     </span>
 
@@ -2369,9 +2544,8 @@
 
                     <span>
 
-                        La extracción y consumo de huevos
-                        continúa siendo una amenaza en
-                        algunas regiones.
+                        La extracción de huevos constituye
+                        una amenaza en algunas regiones.
 
                     </span>
 
@@ -2400,11 +2574,10 @@
 
             <p>
 
-                Panamá es visitado por cinco especies de
-                tortugas marinas, entre ellas la tortuga verde
-                o prieta (<em>Chelonia mydas</em>). El país
-                cuenta con importantes áreas de anidación
-                y alimentación para las tortugas marinas.
+                Panamá forma parte del área utilizada por
+                diferentes especies de tortugas marinas,
+                incluida la tortuga verde
+                (<em>Chelonia mydas</em>).
 
             </p>
 
@@ -2417,13 +2590,12 @@
 
                 <p>
 
-                    MiAMBIENTE desarrolla un programa de
-                    monitoreo de la anidación de la tortuga
-                    verde en el Parque Nacional Coiba.
-                    El seguimiento incluye el registro y
-                    marcaje de hembras anidantes, el conteo
-                    de nidos y la recopilación de datos
-                    biológicos.
+                    MiAMBIENTE realiza monitoreo de la
+                    anidación de tortuga verde en el
+                    Parque Nacional Coiba, incluyendo
+                    registro y marcaje de hembras,
+                    conteo de nidos y recopilación
+                    de datos biológicos.
 
                 </p>
 
@@ -2433,16 +2605,15 @@
             <div class="panama-highlight">
 
                 <strong>
-                    🌊 Importancia de Panamá
+                    🏖️ Punta Chame
                 </strong>
 
                 <p>
 
-                    Las costas panameñas forman parte de las
-                    rutas y ambientes utilizados por las
-                    tortugas marinas. La protección de sus
-                    playas, aguas costeras y ecosistemas
-                    marinos contribuye a su conservación.
+                    MiAMBIENTE identifica Playa El Cabezo
+                    de Punta Chame como una zona de
+                    anidación donde se ha registrado
+                    la tortuga verde.
 
                 </p>
 
@@ -2466,10 +2637,9 @@
 
             <p>
 
-                La conservación requiere proteger tanto las
-                playas de anidación como los ambientes
-                marinos donde las tortugas se alimentan,
-                crecen y migran.
+                La conservación requiere proteger las playas
+                de anidación y los ambientes marinos donde
+                las tortugas se alimentan, crecen y migran.
 
             </p>
 
@@ -2495,8 +2665,8 @@
                         🏖️ Proteger las playas
                     </strong>
 
-                    Respetar los espacios de anidación
-                    y evitar alteraciones innecesarias.
+                    Respetar las zonas de anidación y
+                    evitar alteraciones innecesarias.
 
                 </div>
 
@@ -2582,8 +2752,8 @@
                     </strong>
 
                     <p>
-                        Apunta la cámara hacia el suelo
-                        u otra superficie adecuada.
+                        Apunta la cámara hacia una superficie
+                        adecuada.
                     </p>
 
                 </div>
@@ -2601,7 +2771,8 @@
 
                     <p>
                         Coloca la tortuga, cambia su tamaño
-                        y muévete alrededor para observarla.
+                        y observa el modelo desde diferentes
+                        ángulos.
                     </p>
 
                 </div>
@@ -2633,17 +2804,15 @@
                 <li>
 
                     NOAA Fisheries.
+
                     <a
                         href="https://www.fisheries.noaa.gov/species/green-turtle"
                         target="_blank"
                         rel="noopener noreferrer">
 
                         Green Turtle
-                    </a>
 
-                    Información sobre biología,
-                    distribución, ciclo de vida,
-                    amenazas y conservación.
+                    </a>
 
                 </li>
 
@@ -2651,17 +2820,16 @@
                 <li>
 
                     MiAMBIENTE Panamá.
+
                     <a
                         href="https://miambiente.gob.pa/miambiente-monitorea-la-anidacion-de-la-tortuga-verde-en-el-parque-nacional-coiba/"
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        Monitoreo de la anidación de la
-                        tortuga verde en el Parque Nacional Coiba
-                    </a>
+                        Monitoreo de la anidación de la tortuga
+                        verde en el Parque Nacional Coiba
 
-                    Información sobre monitoreo de
-                    <em>Chelonia mydas</em> en Panamá.
+                    </a>
 
                 </li>
 
@@ -2669,17 +2837,33 @@
                 <li>
 
                     MiAMBIENTE Panamá.
+
                     <a
-                        href="https://miambiente.gob.pa/la-migracion-ancestral-de-las-tortugas-marinas-hacia-las-costas-de-panama/"
+                        href="https://www.miambiente.gob.pa/campana-nacional-de-proteccion-y-conservacion-de-tortugas-marinas/"
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        La migración ancestral de las
-                        tortugas marinas hacia las costas de Panamá
+                        Campaña Nacional de Protección y
+                        Conservación de Tortugas Marinas
+
                     </a>
 
-                    Información sobre las especies de
-                    tortugas marinas presentes en Panamá.
+                </li>
+
+
+                <li>
+
+                    Leaflet.
+
+                    <a
+                        href="https://leafletjs.com/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        Biblioteca JavaScript utilizada
+                        para el mapa interactivo
+
+                    </a>
 
                 </li>
 
@@ -2691,7 +2875,7 @@
 
 
         <!-- =================================================
-             CRÉDITOS DEL MODELO
+             CRÉDITOS
         ================================================== -->
 
         <section class="credits">
@@ -2772,6 +2956,212 @@
         </p>
 
     </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT DEL MAPA
+    ====================================================== -->
+
+    <script>
+
+        /*
+         * =====================================================
+         * MAPA INTERACTIVO
+         * =====================================================
+         *
+         * Leaflet + OpenStreetMap
+         *
+         * Las coordenadas utilizadas son puntos de referencia
+         * para mostrar los sitios en el mapa. No representan
+         * límites de distribución de la especie.
+         */
+
+
+        const map = L.map('map');
+
+
+        /*
+         * Capa base de OpenStreetMap
+         */
+
+        L.tileLayer(
+
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+            {
+
+                maxZoom: 19,
+
+                attribution:
+                    '&copy; OpenStreetMap contributors'
+
+            }
+
+        ).addTo(map);
+
+
+        /*
+         * =====================================================
+         * MARCADOR 1
+         * PARQUE NACIONAL COIBA
+         * =====================================================
+         */
+
+        const coiba = L.marker(
+            [7.50, -81.75]
+        ).addTo(map);
+
+
+        coiba.bindPopup(`
+
+            <div>
+
+                <div class="popup-title">
+                    🏝️ Parque Nacional Coiba
+                </div>
+
+                <div class="popup-type">
+                    🐢 Monitoreo de tortuga verde
+                </div>
+
+                <div class="popup-text">
+
+                    MiAMBIENTE desarrolla monitoreo de
+                    la anidación de <em>Chelonia mydas</em>
+                    en el Parque Nacional Coiba.
+
+                    <br><br>
+
+                    El seguimiento incluye el registro
+                    y marcaje de hembras anidantes,
+                    conteo de nidos y recopilación
+                    de datos biológicos.
+
+                </div>
+
+            </div>
+
+        `);
+
+
+        /*
+         * =====================================================
+         * MARCADOR 2
+         * PUNTA CHAME
+         * =====================================================
+         */
+
+        const puntaChame = L.marker(
+            [8.615, -79.725]
+        ).addTo(map);
+
+
+        puntaChame.bindPopup(`
+
+            <div>
+
+                <div class="popup-title">
+                    🏖️ Punta Chame
+                </div>
+
+                <div class="popup-type">
+                    🐢 Zona de anidación
+                </div>
+
+                <div class="popup-text">
+
+                    MiAMBIENTE identifica Playa El Cabezo
+                    de Punta Chame como una zona de
+                    anidación de tortugas marinas donde
+                    se ha registrado la tortuga verde
+                    (<em>Chelonia mydas</em>).
+
+                </div>
+
+            </div>
+
+        `);
+
+
+        /*
+         * =====================================================
+         * MARCADOR 3
+         * PLAYA LA MARINERA
+         * =====================================================
+         */
+
+        const laMarinera = L.marker(
+            [7.433, -80.000]
+        ).addTo(map);
+
+
+        laMarinera.bindPopup(`
+
+            <div>
+
+                <div class="popup-title">
+                    🏖️ Playa La Marinera
+                </div>
+
+                <div class="popup-type">
+                    🐢 Registro de tortuga verde
+                </div>
+
+                <div class="popup-text">
+
+                    MiAMBIENTE ha documentado eventos
+                    de anidación de tortuga verde
+                    (<em>Chelonia mydas</em>) en esta
+                    zona de reserva.
+
+                </div>
+
+            </div>
+
+        `);
+
+
+        /*
+         * =====================================================
+         * VISTA INICIAL
+         * =====================================================
+         */
+
+        map.fitBounds(
+
+            [
+
+                [7.433, -81.75],
+
+                [8.615, -79.725]
+
+            ],
+
+            {
+
+                padding:
+                    [30, 30]
+
+            }
+
+        );
+
+
+        /*
+         * =====================================================
+         * CONTROL DE ESCALA
+         * =====================================================
+         */
+
+        L.control.scale({
+
+            imperial:
+                false
+
+        }).addTo(map);
+
+
+    </script>
 
 
 </body>
