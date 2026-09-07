@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tortuga Marina | Experiencia 3D y Realidad Aumentada</title>
+
+    <!-- Google Model Viewer -->
+    <script type="module"
+        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+    </script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8f7;
+            color: #173b3f;
+            line-height: 1.6;
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            background: linear-gradient(135deg, #0b4f59, #16827f);
+            color: white;
+            padding: 22px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* CONTENEDOR */
+
+        .container {
+            width: 92%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* INTRODUCCIÓN */
+
+        .intro {
+            text-align: center;
+            padding: 35px 10px 15px;
+        }
+
+        .intro h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            max-width: 750px;
+            margin: auto;
+            color: #52696c;
+        }
+
+        /* VISOR 3D */
+
+        .model-section {
+            background: white;
+            margin: 25px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            background: #e9eeee;
+        }
+
+        /* BOTÓN AR */
+
+        #ar-button {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            background: #0b6f73;
+            color: white;
+
+            border: none;
+            border-radius: 30px;
+
+            padding: 15px 25px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #ar-button:hover {
+            background: #09595c;
+        }
+
+        /* CONTROLES */
+
+        .controls {
+            padding: 18px;
+            text-align: center;
+            background: white;
+        }
+
+        .controls p {
+            font-size: 14px;
+            color: #687c7e;
+        }
+
+        /* INFORMACIÓN */
+
+        .info-section {
+            padding: 35px 0;
+        }
+
+        .info-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 27px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #0b6f73;
+        }
+
+        .card p {
+            color: #52696c;
+        }
+
+        /* CURIOSIDAD */
+
+        .fact {
+            margin: 20px 0 40px;
+            padding: 30px;
+            border-radius: 18px;
+            background: #dff1ef;
+            text-align: center;
+        }
+
+        .fact h2 {
+            margin-bottom: 10px;
+        }
+
+        /* INSTRUCCIONES */
+
+        .instructions {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 40px;
+        }
+
+        .instructions h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .steps {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f1f6f5;
+            border-radius: 10px;
+        }
+
+        .step strong {
+            color: #0b6f73;
+        }
+
+        /* PIE */
+
+        footer {
+            background: #173b3f;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 14px;
+        }
+
+        /* CELULARES */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .intro h2 {
+                font-size: 23px;
+            }
+
+            model-viewer {
+                height: 400px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            #ar-button {
+                width: 85%;
+                font-size: 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header>
+
+        <h1>🐢 Tortuga Marina</h1>
+
+        <p>
+            Experiencia educativa en 3D y realidad aumentada
+        </p>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="intro">
+
+            <h2>Explora la tortuga en 3D</h2>
+
+            <p>
+                Gira, acerca y observa el modelo tridimensional
+                de una tortuga marina desde diferentes ángulos.
+            </p>
+
+        </section>
+
+
+        <!-- MODELO 3D -->
+
+        <section class="model-section">
+
+            <model-viewer
+
+                src="tortuga.glb"
+
+                alt="Modelo 3D de una tortuga marina"
+
+                camera-controls
+
+                auto-rotate
+
+                rotation-per-second="25deg"
+
+                shadow-intensity="1"
+
+                exposure="1"
+
+                environment-image="neutral"
+
+                ar
+
+                ar-modes="webxr scene-viewer quick-look"
+
+                camera-orbit="0deg 75deg 2.5m"
+
+                min-camera-orbit="auto auto 1m"
+
+                max-camera-orbit="auto auto 5m"
+
+            >
+
+                <!-- BOTÓN REALIDAD AUMENTADA -->
+
+                <button
+                    slot="ar-button"
+                    id="ar-button">
+
+                    🐢 VER EN MI ESPACIO
+
+                </button>
+
+            </model-viewer>
+
+
+            <div class="controls">
+
+                <p>
+                    👆 Arrastra para girar · 🔍 Pellizca para acercar
+                    · 🔄 El modelo gira automáticamente
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMACIÓN -->
+
+        <section class="info-section">
+
+            <h2>🌊 Conoce a la tortuga marina</h2>
+
+
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <h3>🌎 Hábitat</h3>
+
+                    <p>
+                        Las tortugas marinas desarrollan gran parte
+                        de su vida en ambientes oceánicos y costeros.
+                        Dependiendo de la especie, pueden utilizar
+                        diferentes zonas para alimentarse, reproducirse
+                        y descansar.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>🐢 Características</h3>
+
+                    <p>
+                        Su cuerpo está adaptado para desplazarse
+                        eficientemente en el agua. Sus extremidades
+                        anteriores tienen forma de aletas y su cuerpo
+                        presenta un caparazón que cumple una función
+                        protectora.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>🍃 Alimentación</h3>
+
+                    <p>
+                        La alimentación depende de la especie y de
+                        la etapa de desarrollo. Las diferentes especies
+                        pueden consumir organismos marinos, plantas,
+                        algas u otros recursos disponibles en su hábitat.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>🌱 Conservación</h3>
+
+                    <p>
+                        Las tortugas marinas enfrentan diversas amenazas,
+                        entre ellas la contaminación, la pérdida de
+                        hábitat, la captura accidental y otros impactos
+                        relacionados con las actividades humanas.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CURIOSIDAD -->
+
+        <section class="fact">
+
+            <h2>💡 ¿Sabías que...?</h2>
+
+            <p>
+                Las tortugas marinas realizan desplazamientos de gran
+                distancia a lo largo de su vida y pueden regresar a
+                determinadas zonas para reproducirse.
+            </p>
+
+        </section>
+
+
+        <!-- INSTRUCCIONES AR -->
+
+        <section class="instructions">
+
+            <h2>📱 ¿Cómo verla en tu espacio?</h2>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <strong>1. Abre esta página desde tu celular.</strong>
+
+                    <br>
+
+                    Utiliza el enlace generado para acceder a la
+                    experiencia.
+
+                </div>
+
+
+                <div class="step">
+
+                    <strong>2. Pulsa "VER EN MI ESPACIO".</strong>
+
+                    <br>
+
+                    El dispositivo puede solicitar permiso para
+                    utilizar la cámara.
+
+                </div>
+
+
+                <div class="step">
+
+                    <strong>3. Apunta la cámara hacia una superficie.</strong>
+
+                    <br>
+
+                    Sigue las instrucciones que aparezcan en pantalla.
+
+                </div>
+
+
+                <div class="step">
+
+                    <strong>4. Coloca la tortuga.</strong>
+
+                    <br>
+
+                    Una vez colocada, podrás observarla desde
+                    diferentes ángulos en tu entorno.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <p>
+            Experiencia educativa 3D · Realidad aumentada
+        </p>
+
+        <p>
+            Modelo 3D utilizado bajo las condiciones de licencia
+            correspondientes.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
