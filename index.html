@@ -1272,7 +1272,7 @@
                     <div class="number">2</div>
 
                     <h3>
-                        🐣 Cría
+                        🐢 Cría
                     </h3>
 
                     <p>
@@ -1483,7 +1483,7 @@
             class="panama">
 
             <h2>
-                  La tortuga verde en Panamá
+                La tortuga verde en Panamá
             </h2>
 
             <p>
@@ -1732,6 +1732,17 @@
                     </a>
                 </li>
 
+
+                <li>
+                    Esri.
+                    <a
+                        href="https://www.arcgis.com/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ArcGIS World Topographic Map
+                    </a>
+                </li>
+
             </ul>
 
         </section>
@@ -1742,7 +1753,7 @@
         <section class="credits">
 
             <h2>
-                ℹ️ Créditos del modelo 3D
+                ℹ️ Créditos
             </h2>
 
             <p>
@@ -1760,6 +1771,12 @@
                     rel="noopener noreferrer">
                     Creative Commons Attribution 4.0
                 </a>.
+            </p>
+
+            <p>
+                Desarrollo de la experiencia web
+                y de la realidad aumentada:
+                <strong>Marielys Cort</strong>.
             </p>
 
             <p>
@@ -1801,17 +1818,34 @@
 
         const map = L.map('map');
 
+
+        /*
+         * =====================================================
+         * MAPA BASE DE ARCGIS
+         * =====================================================
+         *
+         * Se mantiene Leaflet como biblioteca del mapa,
+         * pero se reemplaza OpenStreetMap por
+         * ArcGIS World Topographic Map.
+         *
+         */
+
         L.tileLayer(
-            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+
+            'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+
             {
                 maxZoom: 19,
+
                 attribution:
-                    '&copy; OpenStreetMap contributors'
+                    'Tiles &copy; Esri &mdash; Source: Esri, Garmin, FAO, NOAA, USGS, ' +
+                    '&copy; OpenStreetMap contributors, and the GIS User Community'
             }
+
         ).addTo(map);
 
 
-        /* ICONO ROJO */
+        /* ================= ICONO ROJO ================= */
 
         const iconoRojo = L.divIcon({
 
@@ -1835,10 +1869,13 @@
         /* ================= COIBA ================= */
 
         const coiba = L.marker(
+
             [7.50, -81.75],
+
             {
                 icon: iconoRojo
             }
+
         ).addTo(map);
 
 
@@ -1878,10 +1915,13 @@
         /* ================= PUNTA CHAME ================= */
 
         const puntaChame = L.marker(
+
             [8.615, -79.725],
+
             {
                 icon: iconoRojo
             }
+
         ).addTo(map);
 
 
@@ -1915,10 +1955,13 @@
         /* ================= PLAYA LA MARINERA ================= */
 
         const laMarinera = L.marker(
+
             [7.433, -80.000],
+
             {
                 icon: iconoRojo
             }
+
         ).addTo(map);
 
 
@@ -1953,8 +1996,11 @@
         map.fitBounds(
 
             [
+
                 [7.433, -81.75],
+
                 [8.615, -79.725]
+
             ],
 
             {
@@ -1968,7 +2014,9 @@
         /* ================= ESCALA ================= */
 
         L.control.scale({
+
             imperial: false
+
         }).addTo(map);
 
     </script>
