@@ -1,17 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tortuga Marina | Experiencia 3D y Realidad Aumentada</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Model Viewer -->
-    <script type="module"
+    <meta name="theme-color"
+          content="#087f8c">
+
+    <meta name="description"
+          content="Experiencia educativa interactiva sobre la tortuga verde (Chelonia mydas), con modelo 3D y realidad aumentada.">
+
+    <title>
+        Tortuga Verde | Chelonia mydas
+    </title>
+
+
+    <!-- =====================================================
+         GOOGLE MODEL VIEWER
+         Permite visualizar el modelo 3D y utilizar AR
+    ====================================================== -->
+
+    <script
+        type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
     </script>
 
+
+    <!-- =====================================================
+         ESTILOS
+    ====================================================== -->
+
     <style>
+
+        /* -------------------------------------------------
+           CONFIGURACIÓN GENERAL
+        -------------------------------------------------- */
 
         * {
             box-sizing: border-box;
@@ -19,272 +46,1245 @@
             padding: 0;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f8f7;
-            color: #173b3f;
-            line-height: 1.6;
+
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* ENCABEZADO */
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                #f4faf9;
+
+            color:
+                #173b3f;
+
+            line-height:
+                1.6;
+        }
+
+
+        /* -------------------------------------------------
+           ENCABEZADO
+        -------------------------------------------------- */
 
         header {
-            background: linear-gradient(135deg, #0b4f59, #16827f);
-            color: white;
-            padding: 22px 20px;
-            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #075e67,
+                    #0b8790,
+                    #20a39e
+                );
+
+            color:
+                white;
+
+            padding:
+                55px 20px 65px;
+
+            text-align:
+                center;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
         }
+
+
+        header::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                350px;
+
+            height:
+                350px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            top:
+                -180px;
+
+            left:
+                -100px;
+        }
+
+
+        header::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                300px;
+
+            height:
+                300px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(255,255,255,0.07);
+
+            bottom:
+                -170px;
+
+            right:
+                -80px;
+        }
+
+
+        .header-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            max-width:
+                850px;
+
+            margin:
+                auto;
+        }
+
+
+        .turtle-icon {
+
+            font-size:
+                65px;
+
+            margin-bottom:
+                10px;
+        }
+
 
         header h1 {
-            font-size: 30px;
-            margin-bottom: 5px;
+
+            font-size:
+                clamp(34px, 7vw, 58px);
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                5px;
         }
+
+
+        header h2 {
+
+            font-size:
+                clamp(20px, 4vw, 28px);
+
+            font-weight:
+                normal;
+
+            font-style:
+                italic;
+
+            opacity:
+                0.95;
+        }
+
 
         header p {
-            font-size: 15px;
-            opacity: 0.9;
+
+            margin-top:
+                18px;
+
+            font-size:
+                17px;
+
+            opacity:
+                0.9;
         }
 
-        /* CONTENEDOR */
+
+        /* -------------------------------------------------
+           NAVEGACIÓN
+        -------------------------------------------------- */
+
+        nav {
+
+            background:
+                white;
+
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.08);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                100;
+        }
+
+
+        nav .nav-container {
+
+            max-width:
+                1100px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+        }
+
+
+        nav a {
+
+            color:
+                #17555a;
+
+            text-decoration:
+                none;
+
+            padding:
+                15px 18px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                bold;
+
+            transition:
+                0.2s;
+        }
+
+
+        nav a:hover {
+
+            color:
+                #0a8a91;
+
+            background:
+                #eef8f7;
+        }
+
+
+        /* -------------------------------------------------
+           CONTENEDOR
+        -------------------------------------------------- */
 
         .container {
-            width: 92%;
-            max-width: 1100px;
-            margin: 0 auto;
+
+            width:
+                92%;
+
+            max-width:
+                1100px;
+
+            margin:
+                auto;
         }
 
-        /* INTRODUCCIÓN */
+
+        /* -------------------------------------------------
+           INTRODUCCIÓN
+        -------------------------------------------------- */
 
         .intro {
-            text-align: center;
-            padding: 35px 10px 15px;
+
+            text-align:
+                center;
+
+            padding:
+                55px 10px 25px;
         }
+
 
         .intro h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
+
+            font-size:
+                clamp(28px, 5vw, 40px);
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                15px;
         }
+
 
         .intro p {
-            max-width: 750px;
-            margin: auto;
-            color: #52696c;
+
+            max-width:
+                780px;
+
+            margin:
+                auto;
+
+            color:
+                #5b7073;
+
+            font-size:
+                17px;
         }
 
-        /* VISOR 3D */
+
+        /* -------------------------------------------------
+           MODELO 3D
+        -------------------------------------------------- */
 
         .model-section {
-            background: white;
-            margin: 25px auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+            background:
+                white;
+
+            border-radius:
+                25px;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.09);
+
+            margin:
+                25px auto 55px;
+
+            position:
+                relative;
         }
+
 
         model-viewer {
-            width: 100%;
-            height: 500px;
-            background: #e9eeee;
+
+            width:
+                100%;
+
+            height:
+                550px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #e5f3f2,
+                    #f5faf9
+                );
         }
 
-        /* BOTÓN AR */
+
+        /* -------------------------------------------------
+           BOTÓN REALIDAD AUMENTADA
+        -------------------------------------------------- */
 
         #ar-button {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
 
-            background: #0b6f73;
-            color: white;
+            position:
+                absolute;
 
-            border: none;
-            border-radius: 30px;
+            bottom:
+                28px;
 
-            padding: 15px 25px;
+            left:
+                50%;
 
-            font-size: 16px;
-            font-weight: bold;
+            transform:
+                translateX(-50%);
 
-            cursor: pointer;
+            background:
+                #087f8c;
 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color:
+                white;
+
+            border:
+                none;
+
+            border-radius:
+                50px;
+
+            padding:
+                16px 28px;
+
+            font-size:
+                16px;
+
+            font-weight:
+                bold;
+
+            cursor:
+                pointer;
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,0.25);
+
+            transition:
+                0.25s;
+
+            z-index:
+                10;
         }
+
 
         #ar-button:hover {
-            background: #09595c;
+
+            background:
+                #05636c;
+
+            transform:
+                translateX(-50%)
+                translateY(-2px);
         }
 
-        /* CONTROLES */
 
-        .controls {
-            padding: 18px;
-            text-align: center;
-            background: white;
+        .model-controls {
+
+            text-align:
+                center;
+
+            padding:
+                18px 20px;
+
+            background:
+                white;
+
+            color:
+                #667a7d;
+
+            font-size:
+                14px;
         }
 
-        .controls p {
-            font-size: 14px;
-            color: #687c7e;
+
+        /* -------------------------------------------------
+           BOTÓN PRINCIPAL
+        -------------------------------------------------- */
+
+        .primary-button {
+
+            display:
+                inline-block;
+
+            background:
+                #087f8c;
+
+            color:
+                white;
+
+            padding:
+                14px 25px;
+
+            border-radius:
+                30px;
+
+            text-decoration:
+                none;
+
+            font-weight:
+                bold;
+
+            margin-top:
+                20px;
         }
 
-        /* INFORMACIÓN */
 
-        .info-section {
-            padding: 35px 0;
+        /* -------------------------------------------------
+           SECCIONES
+        -------------------------------------------------- */
+
+        .section {
+
+            padding:
+                45px 0;
         }
 
-        .info-section h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 27px;
+
+        .section-title {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                35px;
         }
+
+
+        .section-title h2 {
+
+            color:
+                #075e67;
+
+            font-size:
+                clamp(27px, 5vw, 37px);
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .section-title p {
+
+            color:
+                #657a7c;
+        }
+
+
+        /* -------------------------------------------------
+           TARJETAS
+        -------------------------------------------------- */
 
         .cards {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                22px;
         }
+
 
         .card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+
+            background:
+                white;
+
+            border-radius:
+                18px;
+
+            padding:
+                28px;
+
+            box-shadow:
+                0 6px 22px rgba(0,0,0,0.06);
+
+            border:
+                1px solid #e3eeee;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
         }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 10px 28px rgba(0,0,0,0.10);
+        }
+
+
+        .card-icon {
+
+            font-size:
+                34px;
+
+            margin-bottom:
+                12px;
+        }
+
 
         .card h3 {
-            margin-bottom: 10px;
-            color: #0b6f73;
+
+            color:
+                #087f8c;
+
+            font-size:
+                21px;
+
+            margin-bottom:
+                10px;
         }
+
 
         .card p {
-            color: #52696c;
+
+            color:
+                #5a6e70;
         }
 
-        /* CURIOSIDAD */
+
+        /* -------------------------------------------------
+           CARACTERÍSTICAS DESTACADAS
+        -------------------------------------------------- */
+
+        .highlights {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
+
+            margin:
+                30px 0;
+        }
+
+
+        .highlight {
+
+            background:
+                #e3f4f2;
+
+            border-radius:
+                15px;
+
+            padding:
+                22px 12px;
+
+            text-align:
+                center;
+        }
+
+
+        .highlight strong {
+
+            display:
+                block;
+
+            font-size:
+                22px;
+
+            color:
+                #075e67;
+        }
+
+
+        .highlight span {
+
+            font-size:
+                13px;
+
+            color:
+                #627476;
+        }
+
+
+        /* -------------------------------------------------
+           CURIOSIDAD
+        -------------------------------------------------- */
 
         .fact {
-            margin: 20px 0 40px;
-            padding: 30px;
-            border-radius: 18px;
-            background: #dff1ef;
-            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d9f1ef,
+                    #edf9f7
+                );
+
+            border-radius:
+                22px;
+
+            padding:
+                38px 30px;
+
+            text-align:
+                center;
+
+            margin:
+                30px 0 55px;
+
+            border:
+                1px solid #c9e8e5;
         }
+
+
+        .fact .fact-icon {
+
+            font-size:
+                42px;
+
+            margin-bottom:
+                10px;
+        }
+
 
         .fact h2 {
-            margin-bottom: 10px;
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                10px;
         }
 
-        /* INSTRUCCIONES */
 
-        .instructions {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            margin-bottom: 40px;
+        .fact p {
+
+            max-width:
+                750px;
+
+            margin:
+                auto;
+
+            color:
+                #526a6c;
+
+            font-size:
+                17px;
         }
 
-        .instructions h2 {
-            text-align: center;
-            margin-bottom: 20px;
+
+        /* -------------------------------------------------
+           REALIDAD AUMENTADA - INSTRUCCIONES
+        -------------------------------------------------- */
+
+        .ar-guide {
+
+            background:
+                #ffffff;
+
+            border-radius:
+                22px;
+
+            padding:
+                35px;
+
+            box-shadow:
+                0 7px 25px rgba(0,0,0,0.06);
+
+            margin-bottom:
+                55px;
         }
+
+
+        .ar-guide h2 {
+
+            text-align:
+                center;
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                28px;
+        }
+
 
         .steps {
-            max-width: 700px;
-            margin: auto;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                15px;
         }
+
 
         .step {
-            margin: 15px 0;
-            padding: 15px;
-            background: #f1f6f5;
-            border-radius: 10px;
+
+            background:
+                #f1f8f7;
+
+            padding:
+                20px;
+
+            border-radius:
+                15px;
+
+            text-align:
+                center;
         }
+
+
+        .step-number {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            border-radius:
+                50%;
+
+            background:
+                #087f8c;
+
+            color:
+                white;
+
+            font-weight:
+                bold;
+
+            margin:
+                0 auto 12px;
+        }
+
 
         .step strong {
-            color: #0b6f73;
+
+            display:
+                block;
+
+            color:
+                #17555a;
+
+            margin-bottom:
+                6px;
         }
 
-        /* PIE */
+
+        .step p {
+
+            font-size:
+                13px;
+
+            color:
+                #647678;
+        }
+
+
+        /* -------------------------------------------------
+           CONSERVACIÓN
+        -------------------------------------------------- */
+
+        .conservation {
+
+            background:
+                #173b3f;
+
+            color:
+                white;
+
+            border-radius:
+                22px;
+
+            padding:
+                40px;
+
+            margin-bottom:
+                55px;
+        }
+
+
+        .conservation h2 {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                18px;
+        }
+
+
+        .conservation p {
+
+            max-width:
+                800px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
+            opacity:
+                0.9;
+        }
+
+
+        .threats {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                15px;
+
+            margin-top:
+                25px;
+        }
+
+
+        .threat {
+
+            background:
+                rgba(255,255,255,0.08);
+
+            padding:
+                20px;
+
+            border-radius:
+                12px;
+
+            text-align:
+                center;
+        }
+
+
+        .threat strong {
+
+            display:
+                block;
+
+            margin-bottom:
+                5px;
+        }
+
+
+        /* -------------------------------------------------
+           CRÉDITOS
+        -------------------------------------------------- */
+
+        .credits {
+
+            background:
+                #eef6f5;
+
+            border-radius:
+                18px;
+
+            padding:
+                28px;
+
+            margin-bottom:
+                45px;
+
+            text-align:
+                center;
+
+            color:
+                #607375;
+
+            font-size:
+                14px;
+        }
+
+
+        .credits h3 {
+
+            color:
+                #075e67;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .credits a {
+
+            color:
+                #087f8c;
+
+            font-weight:
+                bold;
+
+            text-decoration:
+                none;
+        }
+
+
+        .credits a:hover {
+
+            text-decoration:
+                underline;
+        }
+
+
+        /* -------------------------------------------------
+           PIE DE PÁGINA
+        -------------------------------------------------- */
 
         footer {
-            background: #173b3f;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-            font-size: 14px;
+
+            background:
+                #102f33;
+
+            color:
+                white;
+
+            text-align:
+                center;
+
+            padding:
+                30px 20px;
+
+            font-size:
+                13px;
         }
 
-        /* CELULARES */
 
-        @media (max-width: 700px) {
+        footer p {
 
-            header h1 {
-                font-size: 24px;
-            }
+            margin:
+                5px 0;
 
-            .intro h2 {
-                font-size: 23px;
-            }
+            opacity:
+                0.85;
+        }
 
-            model-viewer {
-                height: 400px;
-            }
+
+        /* -------------------------------------------------
+           RESPONSIVE
+        -------------------------------------------------- */
+
+        @media (max-width: 850px) {
 
             .cards {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
-            #ar-button {
-                width: 85%;
-                font-size: 15px;
+
+            .highlights {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
+
+
+            .steps {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .threats {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding:
+                    40px 15px 50px;
+            }
+
+
+            .turtle-icon {
+
+                font-size:
+                    52px;
+            }
+
+
+            nav a {
+
+                padding:
+                    11px 10px;
+
+                font-size:
+                    12px;
+            }
+
+
+            model-viewer {
+
+                height:
+                    450px;
+            }
+
+
+            #ar-button {
+
+                width:
+                    88%;
+
+                padding:
+                    15px 10px;
+
+                font-size:
+                    14px;
+            }
+
+
+            .highlights {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .steps {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .ar-guide {
+
+                padding:
+                    25px 18px;
+            }
+
+
+            .conservation {
+
+                padding:
+                    30px 20px;
+            }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- ENCABEZADO -->
 
-    <header>
+    <!-- =====================================================
+         ENCABEZADO
+    ====================================================== -->
 
-        <h1>🐢 Tortuga Marina</h1>
+    <header id="inicio">
 
-        <p>
-            Experiencia educativa en 3D y realidad aumentada
-        </p>
+        <div class="header-content">
+
+            <div class="turtle-icon">
+                🐢
+            </div>
+
+            <h1>
+                Tortuga Verde
+            </h1>
+
+            <h2>
+                Chelonia mydas
+            </h2>
+
+            <p>
+                Explora, conoce y descubre esta especie marina
+                mediante una experiencia interactiva en 3D.
+            </p>
+
+        </div>
 
     </header>
 
 
+    <!-- =====================================================
+         NAVEGACIÓN
+    ====================================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="#modelo">
+                🐢 Modelo 3D
+            </a>
+
+            <a href="#conoce">
+                🌊 Conócela
+            </a>
+
+            <a href="#conservacion">
+                🛡️ Conservación
+            </a>
+
+            <a href="#creditos">
+                ℹ️ Créditos
+            </a>
+
+        </div>
+
+    </nav>
+
+
     <main class="container">
 
-        <!-- INTRODUCCIÓN -->
+
+        <!-- =================================================
+             INTRODUCCIÓN
+        ================================================== -->
 
         <section class="intro">
 
-            <h2>Explora la tortuga en 3D</h2>
+            <h2>
+                Explora la tortuga verde en 3D
+            </h2>
 
             <p>
-                Gira, acerca y observa el modelo tridimensional
-                de una tortuga marina desde diferentes ángulos.
+
+                Observa el modelo tridimensional desde diferentes
+                ángulos, acércate para conocer sus características
+                y utiliza la realidad aumentada para colocarla
+                virtualmente en tu propio espacio.
+
             </p>
 
         </section>
 
 
-        <!-- MODELO 3D -->
+        <!-- =================================================
+             MODELO 3D
+        ================================================== -->
 
-        <section class="model-section">
+        <section
+            id="modelo"
+            class="model-section">
+
 
             <model-viewer
 
                 src="tortuga.glb"
 
-                alt="Modelo 3D de una tortuga marina"
+                alt="Modelo 3D de una tortuga verde (Chelonia mydas)"
 
                 camera-controls
 
@@ -300,17 +1300,38 @@
 
                 ar
 
-                ar-modes="webxr scene-viewer quick-look"
+                ar-modes="
+                    webxr
+                    scene-viewer
+                    quick-look
+                "
 
-                camera-orbit="0deg 75deg 2.5m"
+                camera-orbit="
+                    0deg
+                    75deg
+                    2.5m
+                "
 
-                min-camera-orbit="auto auto 1m"
+                min-camera-orbit="
+                    auto
+                    auto
+                    1m
+                "
 
-                max-camera-orbit="auto auto 5m"
+                max-camera-orbit="
+                    auto
+                    auto
+                    5m
+                "
 
-            >
+                interaction-prompt="
+                    auto
+                ">
 
-                <!-- BOTÓN REALIDAD AUMENTADA -->
+
+                <!-- =========================================
+                     BOTÓN AR
+                ========================================== -->
 
                 <button
                     slot="ar-button"
@@ -320,84 +1341,261 @@
 
                 </button>
 
+
             </model-viewer>
 
 
-            <div class="controls">
+            <div class="model-controls">
 
-                <p>
-                    👆 Arrastra para girar · 🔍 Pellizca para acercar
-                    · 🔄 El modelo gira automáticamente
-                </p>
+                👆 Arrastra para girar
+
+                &nbsp; · &nbsp;
+
+                🔍 Pellizca para acercar o alejar
+
+                &nbsp; · &nbsp;
+
+                🔄 El modelo gira automáticamente
 
             </div>
+
 
         </section>
 
 
-        <!-- INFORMACIÓN -->
+        <!-- =================================================
+             DESTACADOS
+        ================================================== -->
 
-        <section class="info-section">
+        <div class="highlights">
 
-            <h2>🌊 Conoce a la tortuga marina</h2>
+
+            <div class="highlight">
+
+                <strong>
+                    1
+                </strong>
+
+                <span>
+                    Especie marina
+                </span>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    🌊
+                </strong>
+
+                <span>
+                    Ambientes oceánicos y costeros
+                </span>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    🥚
+                </strong>
+
+                <span>
+                    Se reproduce mediante huevos
+                </span>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    🛡️
+                </strong>
+
+                <span>
+                    Requiere conservación
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             CONOCE A LA ESPECIE
+        ================================================== -->
+
+        <section
+            id="conoce"
+            class="section">
+
+
+            <div class="section-title">
+
+                <h2>
+                    🌊 Conoce a la tortuga verde
+                </h2>
+
+                <p>
+                    Algunas características importantes de
+                    <em>Chelonia mydas</em>
+                </p>
+
+            </div>
 
 
             <div class="cards">
 
 
+                <!-- HÁBITAT -->
+
                 <div class="card">
 
-                    <h3>🌎 Hábitat</h3>
+                    <div class="card-icon">
+                        🌊
+                    </div>
+
+                    <h3>
+                        Hábitat
+                    </h3>
 
                     <p>
-                        Las tortugas marinas desarrollan gran parte
-                        de su vida en ambientes oceánicos y costeros.
-                        Dependiendo de la especie, pueden utilizar
-                        diferentes zonas para alimentarse, reproducirse
-                        y descansar.
+
+                        La tortuga verde utiliza diferentes
+                        ambientes marinos durante su vida.
+                        Puede encontrarse en zonas costeras,
+                        aguas poco profundas, arrecifes,
+                        praderas de pastos marinos y otras
+                        áreas donde encuentra alimento y refugio.
+
                     </p>
 
                 </div>
 
 
+                <!-- ALIMENTACIÓN -->
+
                 <div class="card">
 
-                    <h3>🐢 Características</h3>
+                    <div class="card-icon">
+                        🥬
+                    </div>
+
+                    <h3>
+                        Alimentación
+                    </h3>
 
                     <p>
-                        Su cuerpo está adaptado para desplazarse
-                        eficientemente en el agua. Sus extremidades
-                        anteriores tienen forma de aletas y su cuerpo
-                        presenta un caparazón que cumple una función
-                        protectora.
+
+                        Los individuos adultos de la tortuga
+                        verde presentan una alimentación
+                        principalmente herbívora, consumiendo
+                        principalmente pastos marinos y algas.
+                        Los hábitos alimentarios pueden variar
+                        durante las diferentes etapas de su vida.
+
                     </p>
 
                 </div>
 
 
+                <!-- CARACTERÍSTICAS -->
+
                 <div class="card">
 
-                    <h3>🍃 Alimentación</h3>
+                    <div class="card-icon">
+                        🐢
+                    </div>
+
+                    <h3>
+                        Características
+                    </h3>
 
                     <p>
-                        La alimentación depende de la especie y de
-                        la etapa de desarrollo. Las diferentes especies
-                        pueden consumir organismos marinos, plantas,
-                        algas u otros recursos disponibles en su hábitat.
+
+                        Se caracteriza por presentar un
+                        caparazón y extremidades adaptadas
+                        para desplazarse en el medio marino.
+                        Su cuerpo tiene una forma hidrodinámica
+                        que facilita el desplazamiento en el agua.
+
                     </p>
 
                 </div>
 
 
+                <!-- DISTRIBUCIÓN -->
+
                 <div class="card">
 
-                    <h3>🌱 Conservación</h3>
+                    <div class="card-icon">
+                        🌎
+                    </div>
+
+                    <h3>
+                        Distribución
+                    </h3>
 
                     <p>
-                        Las tortugas marinas enfrentan diversas amenazas,
-                        entre ellas la contaminación, la pérdida de
-                        hábitat, la captura accidental y otros impactos
-                        relacionados con las actividades humanas.
+
+                        La especie tiene una amplia distribución
+                        en regiones tropicales y subtropicales
+                        de los océanos. Realiza desplazamientos
+                        entre diferentes áreas de alimentación,
+                        reproducción y desarrollo.
+
+                    </p>
+
+                </div>
+
+
+                <!-- REPRODUCCIÓN -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🥚
+                    </div>
+
+                    <h3>
+                        Reproducción
+                    </h3>
+
+                    <p>
+
+                        Las hembras regresan a playas adecuadas
+                        para depositar sus huevos. Después de
+                        la incubación, las crías emergen del nido
+                        y se dirigen hacia el mar.
+
+                    </p>
+
+                </div>
+
+
+                <!-- CICLO DE VIDA -->
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🔄
+                    </div>
+
+                    <h3>
+                        Ciclo de vida
+                    </h3>
+
+                    <p>
+
+                        Durante su vida atraviesa diferentes
+                        etapas de desarrollo y puede recorrer
+                        grandes distancias entre sus áreas de
+                        alimentación y reproducción.
+
                     </p>
 
                 </div>
@@ -405,29 +1603,45 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- CURIOSIDAD -->
+        <!-- =================================================
+             CURIOSIDAD
+        ================================================== -->
 
         <section class="fact">
 
-            <h2>💡 ¿Sabías que...?</h2>
+            <div class="fact-icon">
+                💡
+            </div>
+
+            <h2>
+                ¿Sabías que...?
+            </h2>
 
             <p>
-                Las tortugas marinas realizan desplazamientos de gran
-                distancia a lo largo de su vida y pueden regresar a
-                determinadas zonas para reproducirse.
+
+                La tortuga verde recibe su nombre común por
+                la coloración verdosa de la grasa y tejidos
+                internos de algunos individuos, y no porque
+                necesariamente su caparazón sea completamente verde.
+
             </p>
 
         </section>
 
 
-        <!-- INSTRUCCIONES AR -->
+        <!-- =================================================
+             REALIDAD AUMENTADA
+        ================================================== -->
 
-        <section class="instructions">
+        <section class="ar-guide">
 
-            <h2>📱 ¿Cómo verla en tu espacio?</h2>
+            <h2>
+                📱 Lleva la tortuga a tu espacio
+            </h2>
 
 
             <div class="steps">
@@ -435,47 +1649,75 @@
 
                 <div class="step">
 
-                    <strong>1. Abre esta página desde tu celular.</strong>
+                    <div class="step-number">
+                        1
+                    </div>
 
-                    <br>
+                    <strong>
+                        Pulsa el botón
+                    </strong>
 
-                    Utiliza el enlace generado para acceder a la
-                    experiencia.
-
-                </div>
-
-
-                <div class="step">
-
-                    <strong>2. Pulsa "VER EN MI ESPACIO".</strong>
-
-                    <br>
-
-                    El dispositivo puede solicitar permiso para
-                    utilizar la cámara.
+                    <p>
+                        Selecciona
+                        <strong>
+                            "VER EN MI ESPACIO"
+                        </strong>
+                        en el modelo 3D.
+                    </p>
 
                 </div>
 
 
                 <div class="step">
 
-                    <strong>3. Apunta la cámara hacia una superficie.</strong>
+                    <div class="step-number">
+                        2
+                    </div>
 
-                    <br>
+                    <strong>
+                        Activa la cámara
+                    </strong>
 
-                    Sigue las instrucciones que aparezcan en pantalla.
+                    <p>
+                        Permite que el navegador
+                        utilice la cámara del dispositivo.
+                    </p>
 
                 </div>
 
 
                 <div class="step">
 
-                    <strong>4. Coloca la tortuga.</strong>
+                    <div class="step-number">
+                        3
+                    </div>
 
-                    <br>
+                    <strong>
+                        Busca una superficie
+                    </strong>
 
-                    Una vez colocada, podrás observarla desde
-                    diferentes ángulos en tu entorno.
+                    <p>
+                        Apunta hacia el suelo o
+                        una superficie adecuada.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <strong>
+                        Explora
+                    </strong>
+
+                    <p>
+                        Coloca la tortuga y muévete
+                        alrededor para observarla.
+                    </p>
 
                 </div>
 
@@ -484,24 +1726,170 @@
 
         </section>
 
+
+        <!-- =================================================
+             CONSERVACIÓN
+        ================================================== -->
+
+        <section
+            id="conservacion"
+            class="conservation">
+
+
+            <h2>
+                🛡️ ¿Por qué debemos protegerla?
+            </h2>
+
+
+            <p>
+
+                Las tortugas marinas enfrentan diversas
+                amenazas relacionadas con las actividades
+                humanas y los cambios en sus ecosistemas.
+                La conservación de sus hábitats y la reducción
+                de impactos humanos son elementos importantes
+                para favorecer la supervivencia de sus poblaciones.
+
+            </p>
+
+
+            <div class="threats">
+
+
+                <div class="threat">
+
+                    <strong>
+                        🌊 Contaminación
+                    </strong>
+
+                    <span>
+                        Residuos y contaminación marina
+                        pueden afectar sus ecosistemas.
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <strong>
+                        🎣 Captura accidental
+                    </strong>
+
+                    <span>
+                        Algunas actividades pesqueras
+                        pueden afectar a las tortugas.
+                    </span>
+
+                </div>
+
+
+                <div class="threat">
+
+                    <strong>
+                        🏖️ Pérdida de hábitat
+                    </strong>
+
+                    <span>
+                        La modificación de zonas costeras
+                        puede afectar sus ciclos de vida.
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             CRÉDITOS
+        ================================================== -->
+
+        <section
+            id="creditos"
+            class="credits">
+
+
+            <h3>
+                ℹ️ Créditos del modelo 3D
+            </h3>
+
+
+            <p>
+
+                Modelo 3D:
+                <strong>
+                    "Tortuga"
+                </strong>
+                por
+                <strong>
+                    321cba
+                </strong>.
+
+            </p>
+
+
+            <p>
+
+                Disponible bajo licencia
+
+                <a
+                    href="https://creativecommons.org/licenses/by/4.0/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Creative Commons Attribution 4.0
+
+                </a>.
+
+            </p>
+
+
+            <p>
+
+                <a
+                    href="https://sketchfab.com/3d-models/tortuga-854123627dbc44bbb0bd0298dedb3e36"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Ver modelo original en Sketchfab
+
+                </a>
+
+            </p>
+
+
+        </section>
+
+
     </main>
 
 
-    <!-- PIE DE PÁGINA -->
+    <!-- =====================================================
+         PIE DE PÁGINA
+    ====================================================== -->
 
     <footer>
 
         <p>
-            Experiencia educativa 3D · Realidad aumentada
+            🐢 Experiencia educativa interactiva
         </p>
 
         <p>
-            Modelo 3D utilizado bajo las condiciones de licencia
-            correspondientes.
+            Tortuga verde · <em>Chelonia mydas</em>
+        </p>
+
+        <p>
+            Modelo 3D utilizado bajo licencia
+            Creative Commons Attribution 4.0.
         </p>
 
     </footer>
 
 
 </body>
+
 </html>
