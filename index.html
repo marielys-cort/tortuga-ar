@@ -2,20 +2,40 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#087f8c">
-    <meta name="description" content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="theme-color"
+        content="#087f8c">
+
+    <meta
+        name="description"
+        content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
 
     <title>Tortuga Verde | Chelonia mydas</title>
 
-    <!-- MODEL VIEWER -->
-    <script type="module"
+
+    <!-- =====================================================
+         MODEL VIEWER
+         ===================================================== -->
+
+    <script
+        type="module"
         src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
     </script>
 
-    <!-- LEAFLET -->
-    <link rel="stylesheet"
+
+    <!-- =====================================================
+         LEAFLET
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         crossorigin="">
 
@@ -23,6 +43,7 @@
         src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         crossorigin="">
     </script>
+
 
     <style>
 
@@ -42,6 +63,7 @@
             color: #173b3f;
             line-height: 1.65;
         }
+
 
         /* ================= HEADER ================= */
 
@@ -108,6 +130,7 @@
             opacity: 0.93;
         }
 
+
         /* ================= NAV ================= */
 
         nav {
@@ -140,6 +163,7 @@
             color: #087f8c;
         }
 
+
         /* ================= CONTENEDOR ================= */
 
         .container {
@@ -147,6 +171,7 @@
             max-width: 1100px;
             margin: auto;
         }
+
 
         /* ================= INTRO ================= */
 
@@ -168,6 +193,7 @@
             font-size: 17px;
         }
 
+
         /* ================= MODELO 3D ================= */
 
         .model-section {
@@ -181,6 +207,7 @@
         model-viewer {
             width: 100%;
             height: 560px;
+
             background: linear-gradient(
                 180deg,
                 #e1f2f1,
@@ -188,30 +215,47 @@
             );
         }
 
+
+        /* ================= BOTÓN AR ================= */
+
         #ar-button {
             position: absolute;
             bottom: 28px;
             left: 50%;
             transform: translateX(-50%);
+
             width: auto;
             min-width: 240px;
+
             background: #087f8c;
             color: white;
+
             border: none;
             border-radius: 50px;
+
             padding: 16px 28px;
+
             font-size: 16px;
             font-weight: bold;
+
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+
+            box-shadow:
+                0 6px 20px rgba(0,0,0,0.25);
+
             transition: 0.25s;
+
             z-index: 10;
         }
 
         #ar-button:hover {
             background: #05636c;
-            transform: translateX(-50%) translateY(-2px);
+
+            transform:
+                translateX(-50%)
+                translateY(-2px);
         }
+
 
         .model-controls {
             text-align: center;
@@ -219,6 +263,7 @@
             color: #657779;
             font-size: 14px;
         }
+
 
         /* ================= DATOS ================= */
 
@@ -247,6 +292,7 @@
             color: #607577;
         }
 
+
         /* ================= SECCIONES ================= */
 
         .section {
@@ -267,6 +313,7 @@
         .section-title p {
             color: #687a7c;
         }
+
 
         /* ================= TARJETAS ================= */
 
@@ -304,6 +351,7 @@
         .card p {
             color: #596d70;
         }
+
 
         /* ================= MAPA ================= */
 
@@ -371,29 +419,44 @@
             line-height: 1.5;
         }
 
+
         /* ================= MARCADORES ROJOS ================= */
 
         .marcador-rojo {
             width: 22px;
             height: 22px;
+
             background: #e53935;
+
             border: 3px solid white;
-            border-radius: 50% 50% 50% 0;
+
+            border-radius:
+                50% 50% 50% 0;
+
             transform: rotate(-45deg);
-            box-shadow: 0 2px 7px rgba(0,0,0,0.35);
+
+            box-shadow:
+                0 2px 7px rgba(0,0,0,0.35);
+
             position: relative;
         }
 
         .marcador-rojo::after {
             content: "";
+
             width: 6px;
             height: 6px;
+
             background: white;
+
             border-radius: 50%;
+
             position: absolute;
+
             top: 5px;
             left: 5px;
         }
+
 
         /* ================= DISTRIBUCIÓN ================= */
 
@@ -431,8 +494,10 @@
             text-align: center;
             color: #17555a;
             font-weight: bold;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.04);
         }
+
 
         /* ================= CICLO DE VIDA ================= */
 
@@ -449,19 +514,25 @@
             border-radius: 18px;
             padding: 25px 15px;
             text-align: center;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.05);
         }
 
         .life-stage .number {
             width: 40px;
             height: 40px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             border-radius: 50%;
+
             background: #087f8c;
             color: white;
+
             font-weight: bold;
+
             margin: 0 auto 13px;
         }
 
@@ -475,6 +546,7 @@
             font-size: 14px;
         }
 
+
         /* ================= CURIOSIDAD ================= */
 
         .fact {
@@ -485,8 +557,11 @@
             );
 
             border-radius: 22px;
+
             padding: 38px 30px;
+
             text-align: center;
+
             margin: 50px 0;
         }
 
@@ -506,13 +581,17 @@
             color: #556c6f;
         }
 
+
         /* ================= AMENAZAS ================= */
 
         .threat-section {
             background: #173b3f;
             color: white;
+
             border-radius: 23px;
+
             padding: 45px 35px;
+
             margin: 55px 0;
         }
 
@@ -557,6 +636,7 @@
             opacity: 0.88;
         }
 
+
         /* ================= PANAMÁ ================= */
 
         .panama {
@@ -567,8 +647,11 @@
             );
 
             border: 1px solid #cde8e5;
+
             border-radius: 23px;
+
             padding: 45px 35px;
+
             margin: 55px 0;
         }
 
@@ -592,7 +675,8 @@
             padding: 25px;
             margin-top: 25px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.05);
         }
 
         .panama-highlight strong {
@@ -602,6 +686,7 @@
             margin-bottom: 12px;
         }
 
+
         /* ================= CONSERVACIÓN ================= */
 
         .conservation {
@@ -609,7 +694,8 @@
             border-radius: 23px;
             padding: 40px;
             margin: 55px 0;
-            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+            box-shadow:
+                0 7px 25px rgba(0,0,0,0.06);
         }
 
         .conservation h2 {
@@ -646,6 +732,7 @@
             margin-bottom: 6px;
         }
 
+
         /* ================= REALIDAD AUMENTADA ================= */
 
         .ar-guide {
@@ -653,7 +740,8 @@
             border-radius: 23px;
             padding: 40px;
             margin: 55px 0;
-            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
+            box-shadow:
+                0 7px 25px rgba(0,0,0,0.06);
         }
 
         .ar-guide h2 {
@@ -678,13 +766,18 @@
         .step-number {
             width: 40px;
             height: 40px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             border-radius: 50%;
+
             background: #087f8c;
             color: white;
+
             font-weight: bold;
+
             margin: 0 auto 12px;
         }
 
@@ -698,6 +791,7 @@
             font-size: 13px;
             color: #657779;
         }
+
 
         /* ================= FUENTES ================= */
 
@@ -731,6 +825,7 @@
             font-weight: bold;
         }
 
+
         /* ================= CRÉDITOS ================= */
 
         .credits {
@@ -754,6 +849,7 @@
             text-decoration: none;
         }
 
+
         /* ================= FOOTER ================= */
 
         footer {
@@ -768,6 +864,7 @@
             margin: 5px 0;
             opacity: 0.85;
         }
+
 
         /* ================= RESPONSIVE ================= */
 
@@ -800,7 +897,9 @@
             .steps {
                 grid-template-columns: repeat(2, 1fr);
             }
+
         }
+
 
         @media (max-width: 600px) {
 
@@ -846,15 +945,20 @@
             .steps {
                 grid-template-columns: 1fr;
             }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
     <header id="inicio">
 
@@ -876,18 +980,37 @@
     </header>
 
 
-    <!-- ================= NAVEGACIÓN ================= -->
+    <!-- =====================================================
+         NAVEGACIÓN
+         ===================================================== -->
 
     <nav>
 
         <div class="nav-container">
 
-            <a href="#modelo">🐢 Modelo 3D</a>
-            <a href="#conoce">🌊 Conócela</a>
-            <a href="#mapa">🗺️ Mapa</a>
-            <a href="#ciclo">🥚 Ciclo de vida</a>
-            <a href="#amenazas">⚠️ Amenazas</a>
-            <a href="#panama">Panamá</a>
+            <a href="#modelo">
+                🐢 Modelo 3D
+            </a>
+
+            <a href="#conoce">
+                🌊 Conócela
+            </a>
+
+            <a href="#mapa">
+                🗺️ Mapa
+            </a>
+
+            <a href="#ciclo">
+                🐢 Ciclo de vida
+            </a>
+
+            <a href="#amenazas">
+                ⚠️ Amenazas
+            </a>
+
+            <a href="#panama">
+                Panamá
+            </a>
 
         </div>
 
@@ -897,7 +1020,9 @@
     <main class="container">
 
 
-        <!-- ================= INTRO ================= -->
+        <!-- =====================================================
+             INTRO
+             ===================================================== -->
 
         <section class="intro">
 
@@ -906,24 +1031,36 @@
             </h2>
 
             <p>
-                <em>Chelonia mydas</em> es una tortuga marina
-                de amplia distribución mundial. Los adultos
-                son principalmente herbívoros y se alimentan
-                sobre todo de algas y pastos marinos.
+
+                <em>Chelonia mydas</em>
+                es una tortuga marina
+                de amplia distribución mundial.
+
+                Los adultos
+                son principalmente herbívoros
+                y se alimentan
+                sobre todo de algas
+                y pastos marinos.
+
             </p>
 
         </section>
 
 
-        <!-- ================= MODELO 3D ================= -->
+        <!-- =====================================================
+             MODELO 3D + REALIDAD AUMENTADA
+             ===================================================== -->
 
         <section
             id="modelo"
             class="model-section">
 
+
             <model-viewer
 
                 src="tortuga.glb"
+
+                ios-src="tortuga.usdz"
 
                 alt="Modelo 3D de una tortuga verde Chelonia mydas"
 
@@ -939,13 +1076,32 @@
 
                 environment-image="neutral"
 
+
+                <!-- =================================================
+                     REALIDAD AUMENTADA
+
+                     Android:
+                     Scene Viewer
+
+                     iPhone:
+                     Quick Look
+
+                     WebXR:
+                     navegadores compatibles
+                     ================================================= -->
+
                 ar
 
                 ar-modes="
-                    webxr
                     scene-viewer
                     quick-look
+                    webxr
                 "
+
+                ar-placement="floor"
+
+                ar-scale="auto"
+
 
                 camera-orbit="
                     0deg
@@ -965,7 +1121,14 @@
                     5m
                 "
 
-                interaction-prompt="auto">
+                interaction-prompt="auto"
+
+
+                <!-- =================================================
+                     BOTÓN PERSONALIZADO
+                     ================================================= -->
+
+                >
 
                 <button
                     slot="ar-button"
@@ -975,15 +1138,20 @@
 
                 </button>
 
+
             </model-viewer>
 
 
             <div class="model-controls">
 
                 👆 Arrastra para girar
+
                 &nbsp; · &nbsp;
+
                 🔍 Pellizca para acercar o alejar
+
                 &nbsp; · &nbsp;
+
                 🔄 Rotación automática
 
             </div>
@@ -991,9 +1159,12 @@
         </section>
 
 
-        <!-- ================= DATOS ================= -->
+        <!-- =====================================================
+             DATOS
+             ===================================================== -->
 
         <div class="highlights">
+
 
             <div class="highlight">
 
@@ -1010,7 +1181,9 @@
 
             <div class="highlight">
 
-                <strong>🌎</strong>
+                <strong>
+                    🌎
+                </strong>
 
                 <span>
                     Distribución mundial
@@ -1021,7 +1194,9 @@
 
             <div class="highlight">
 
-                <strong>🥬</strong>
+                <strong>
+                    🥬
+                </strong>
 
                 <span>
                     Adultos principalmente herbívoros
@@ -1032,7 +1207,9 @@
 
             <div class="highlight">
 
-                <strong>🐢</strong>
+                <strong>
+                    🐢
+                </strong>
 
                 <span>
                     Tortuga marina
@@ -1040,14 +1217,18 @@
 
             </div>
 
+
         </div>
 
 
-        <!-- ================= CONOCE ================= -->
+        <!-- =====================================================
+             CONOCE
+             ===================================================== -->
 
         <section
             id="conoce"
             class="section">
+
 
             <div class="section-title">
 
@@ -1077,11 +1258,15 @@
                     </h3>
 
                     <p>
+
                         La tortuga verde es una tortuga marina
-                        de caparazón duro. Los adultos presentan
+                        de caparazón duro.
+
+                        Los adultos presentan
                         una coloración variable en el caparazón,
                         mientras que su cuerpo está adaptado
                         para desplazarse por el océano.
+
                     </p>
 
                 </div>
@@ -1098,9 +1283,11 @@
                     </h3>
 
                     <p>
+
                         Los adultos son principalmente
                         herbívoros y consumen principalmente
                         algas y pastos marinos.
+
                     </p>
 
                 </div>
@@ -1117,10 +1304,12 @@
                     </h3>
 
                     <p>
+
                         Utiliza diferentes ambientes durante
                         su vida, desde zonas oceánicas hasta
                         áreas costeras poco profundas donde
                         puede alimentarse.
+
                     </p>
 
                 </div>
@@ -1137,9 +1326,11 @@
                     </h3>
 
                     <p>
+
                         Puede realizar desplazamientos entre
                         áreas de alimentación y zonas de
                         reproducción.
+
                     </p>
 
                 </div>
@@ -1150,11 +1341,14 @@
         </section>
 
 
-        <!-- ================= MAPA ================= -->
+        <!-- =====================================================
+             MAPA
+             ===================================================== -->
 
         <section
             id="mapa"
             class="map-section">
+
 
             <div class="map-title">
 
@@ -1163,11 +1357,14 @@
                 </h2>
 
                 <p>
+
                     Explora algunos sitios panameños
                     documentados en fuentes oficiales
                     en relación con la presencia o
                     anidación de tortugas marinas,
-                    incluida <em>Chelonia mydas</em>.
+                    incluida
+                    <em>Chelonia mydas</em>.
+
                 </p>
 
             </div>
@@ -1189,10 +1386,13 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- ================= DISTRIBUCIÓN ================= -->
+        <!-- =====================================================
+             DISTRIBUCIÓN
+             ===================================================== -->
 
         <section class="distribution">
 
@@ -1201,43 +1401,54 @@
             </h2>
 
             <p>
+
                 La tortuga verde se encuentra en regiones
                 tropicales y subtropicales de diferentes
-                océanos. Su ciclo de vida puede implicar
+                océanos.
+
+                Su ciclo de vida puede implicar
                 desplazamientos entre zonas de alimentación
                 y playas de reproducción.
+
             </p>
 
 
             <div class="oceans">
 
+
                 <div class="ocean">
                     🌊 Océano Atlántico
                 </div>
+
 
                 <div class="ocean">
                     🌊 Océano Pacífico
                 </div>
 
+
                 <div class="ocean">
                     🌊 Océano Índico
                 </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ================= CICLO DE VIDA ================= -->
+        <!-- =====================================================
+             CICLO DE VIDA
+             ===================================================== -->
 
         <section
             id="ciclo"
             class="section">
 
+
             <div class="section-title">
 
                 <h2>
-                    🥚 Ciclo de vida
+                    🐢 Ciclo de vida
                 </h2>
 
                 <p>
@@ -1252,16 +1463,22 @@
 
                 <div class="life-stage">
 
-                    <div class="number">1</div>
+                    <div class="number">
+                        1
+                    </div>
 
                     <h3>
                         🥚 Huevo
                     </h3>
 
                     <p>
+
                         La hembra deposita los huevos
-                        en playas arenosas. Después
+                        en playas arenosas.
+
+                        Después
                         de la incubación nacen las crías.
+
                     </p>
 
                 </div>
@@ -1269,15 +1486,19 @@
 
                 <div class="life-stage">
 
-                    <div class="number">2</div>
+                    <div class="number">
+                        2
+                    </div>
 
                     <h3>
                         🐢 Cría
                     </h3>
 
                     <p>
+
                         Las crías emergen del nido
                         y se desplazan hacia el mar.
+
                     </p>
 
                 </div>
@@ -1285,16 +1506,20 @@
 
                 <div class="life-stage">
 
-                    <div class="number">3</div>
+                    <div class="number">
+                        3
+                    </div>
 
                     <h3>
                         🐢 Juvenil
                     </h3>
 
                     <p>
+
                         Durante su crecimiento utilizan
                         ambientes oceánicos y posteriormente
                         pueden ocupar zonas costeras.
+
                     </p>
 
                 </div>
@@ -1302,15 +1527,19 @@
 
                 <div class="life-stage">
 
-                    <div class="number">4</div>
+                    <div class="number">
+                        4
+                    </div>
 
                     <h3>
                         🐢 Adulta
                     </h3>
 
                     <p>
+
                         Los adultos pueden desplazarse entre
                         áreas de alimentación y reproducción.
+
                     </p>
 
                 </div>
@@ -1321,7 +1550,9 @@
         </section>
 
 
-        <!-- ================= CURIOSIDAD ================= -->
+        <!-- =====================================================
+             CURIOSIDAD
+             ===================================================== -->
 
         <section class="fact">
 
@@ -1334,33 +1565,41 @@
             </h2>
 
             <p>
+
                 El nombre "tortuga verde" se relaciona
                 históricamente con la coloración verdosa
                 de la grasa y algunos tejidos internos,
                 no necesariamente con el color del caparazón.
+
             </p>
 
         </section>
 
 
-        <!-- ================= AMENAZAS ================= -->
+        <!-- =====================================================
+             AMENAZAS
+             ===================================================== -->
 
         <section
             id="amenazas"
             class="threat-section">
+
 
             <h2>
                 ⚠️ Amenazas para la especie
             </h2>
 
             <p>
+
                 La tortuga verde enfrenta diferentes amenazas
                 relacionadas con actividades humanas y cambios
                 ambientales.
+
             </p>
 
 
             <div class="threats">
+
 
                 <div class="threat">
 
@@ -1373,8 +1612,10 @@
                     </strong>
 
                     <span>
+
                         Puede quedar atrapada accidentalmente
                         en equipos de pesca.
+
                     </span>
 
                 </div>
@@ -1391,8 +1632,10 @@
                     </strong>
 
                     <span>
+
                         Los residuos marinos pueden provocar
                         ingestión, enredos y lesiones.
+
                     </span>
 
                 </div>
@@ -1409,9 +1652,11 @@
                     </strong>
 
                     <span>
+
                         La transformación de las costas puede
                         afectar las áreas de alimentación
                         y anidación.
+
                     </span>
 
                 </div>
@@ -1428,8 +1673,10 @@
                     </strong>
 
                     <span>
+
                         Las colisiones pueden causar lesiones
                         graves o la muerte.
+
                     </span>
 
                 </div>
@@ -1446,9 +1693,11 @@
                     </strong>
 
                     <span>
+
                         Los cambios ambientales pueden afectar
                         playas y ecosistemas utilizados por
                         la especie.
+
                     </span>
 
                 </div>
@@ -1465,32 +1714,41 @@
                     </strong>
 
                     <span>
+
                         La extracción de huevos constituye
                         una amenaza en algunas regiones.
+
                     </span>
 
                 </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ================= PANAMÁ ================= -->
+        <!-- =====================================================
+             PANAMÁ
+             ===================================================== -->
 
         <section
             id="panama"
             class="panama">
 
+
             <h2>
                 La tortuga verde en Panamá
             </h2>
 
+
             <p>
+
                 Panamá forma parte del área utilizada por
                 diferentes especies de tortugas marinas,
                 incluida la tortuga verde
                 (<em>Chelonia mydas</em>).
+
             </p>
 
 
@@ -1501,12 +1759,14 @@
                 </strong>
 
                 <p>
+
                     MI AMBIENTE desarrolla monitoreo de la
                     anidación de tortuga verde en el
                     Parque Nacional Coiba, incluyendo
                     registro y marcaje de hembras,
                     conteo de nidos y recopilación
                     de datos biológicos.
+
                 </p>
 
             </div>
@@ -1519,33 +1779,43 @@
                 </strong>
 
                 <p>
+
                     MI AMBIENTE identifica Playa El Cabezo
                     de Punta Chame como una zona de
                     anidación donde se ha registrado
                     la tortuga verde.
+
                 </p>
 
             </div>
 
+
         </section>
 
 
-        <!-- ================= CONSERVACIÓN ================= -->
+        <!-- =====================================================
+             CONSERVACIÓN
+             ===================================================== -->
 
         <section class="conservation">
+
 
             <h2>
                 🛡️ ¿Cómo podemos ayudar a conservarla?
             </h2>
 
+
             <p>
+
                 La conservación requiere proteger las playas
                 de anidación y los ambientes marinos donde
                 las tortugas se alimentan, crecen y migran.
+
             </p>
 
 
             <div class="actions">
+
 
                 <div class="action">
 
@@ -1582,14 +1852,18 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
 
-        <!-- ================= REALIDAD AUMENTADA ================= -->
+        <!-- =====================================================
+             REALIDAD AUMENTADA
+             ===================================================== -->
 
         <section class="ar-guide">
+
 
             <h2>
                 📱 Lleva la tortuga a tu espacio
@@ -1597,6 +1871,7 @@
 
 
             <div class="steps">
+
 
                 <div class="step">
 
@@ -1609,9 +1884,11 @@
                     </strong>
 
                     <p>
+
                         Selecciona
                         "VER EN MI ESPACIO"
                         en el modelo 3D.
+
                     </p>
 
                 </div>
@@ -1628,8 +1905,10 @@
                     </strong>
 
                     <p>
+
                         Autoriza el acceso a la cámara
                         cuando el dispositivo lo solicite.
+
                     </p>
 
                 </div>
@@ -1646,8 +1925,10 @@
                     </strong>
 
                     <p>
+
                         Apunta la cámara hacia una superficie
                         adecuada.
+
                     </p>
 
                 </div>
@@ -1664,23 +1945,29 @@
                     </strong>
 
                     <p>
+
                         Coloca la tortuga, cambia su tamaño
                         y observa el modelo desde diferentes
                         ángulos.
+
                     </p>
 
                 </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ================= FUENTES ================= -->
+        <!-- =====================================================
+             FUENTES
+             ===================================================== -->
 
         <section
             id="fuentes"
             class="sources">
+
 
             <h2>
                 📚 Fuentes de información
@@ -1689,164 +1976,232 @@
 
             <ul>
 
+
                 <li>
+
                     NOAA Fisheries.
+
                     <a
                         href="https://www.fisheries.noaa.gov/species/green-turtle"
                         target="_blank"
                         rel="noopener noreferrer">
+
                         Green Turtle
+
                     </a>
+
                 </li>
 
 
                 <li>
+
                     MI AMBIENTE Panamá.
+
                     <a
                         href="https://miambiente.gob.pa/miambiente-monitorea-la-anidacion-de-la-tortuga-verde-en-el-parque-nacional-coiba/"
                         target="_blank"
                         rel="noopener noreferrer">
+
                         Monitoreo de la anidación de la tortuga verde en el Parque Nacional Coiba
+
                     </a>
+
                 </li>
 
 
                 <li>
+
                     MI AMBIENTE Panamá.
+
                     <a
                         href="https://www.miambiente.gob.pa/campana-nacional-de-proteccion-y-conservacion-de-tortugas-marinas/"
                         target="_blank"
                         rel="noopener noreferrer">
+
                         Campaña Nacional de Protección y Conservación de Tortugas Marinas
+
                     </a>
+
                 </li>
 
 
                 <li>
+
                     Leaflet.
+
                     <a
                         href="https://leafletjs.com/"
                         target="_blank"
                         rel="noopener noreferrer">
+
                         Biblioteca JavaScript utilizada para el mapa interactivo
+
                     </a>
+
                 </li>
 
 
                 <li>
+
                     Esri.
+
                     <a
                         href="https://www.arcgis.com/"
                         target="_blank"
                         rel="noopener noreferrer">
+
                         ArcGIS World Topographic Map
+
                     </a>
+
                 </li>
+
 
             </ul>
 
         </section>
 
 
-        <!-- ================= CRÉDITOS ================= -->
+        <!-- =====================================================
+             CRÉDITOS
+             ===================================================== -->
 
         <section class="credits">
+
 
             <h2>
                 ℹ️ Créditos
             </h2>
 
+
             <p>
+
                 Desarrollo de la experiencia web
                 y de la realidad aumentada:
-                <strong>Marielys Cortés</strong>.
+
+                <strong>
+                    Marielys Cortés
+                </strong>.
+
             </p>
 
 
             <p>
+
                 Modelo 3D:
-                <strong>"Tortuga"</strong>
+
+                <strong>
+                    "Tortuga"
+                </strong>
+
                 por
-                <strong>321cba</strong>.
+
+                <strong>
+                    321cba
+                </strong>.
+
             </p>
 
+
             <p>
+
                 Disponible bajo licencia
+
                 <a
                     href="https://creativecommons.org/licenses/by/4.0/"
                     target="_blank"
                     rel="noopener noreferrer">
+
                     Creative Commons Attribution 4.0
+
                 </a>.
+
             </p>
 
+
             <p>
+
                 <a
                     href="https://sketchfab.com/3d-models/tortuga-854123627dbc44bbb0bd0298dedb3e36"
                     target="_blank"
                     rel="noopener noreferrer">
+
                     Ver modelo original en Sketchfab
+
                 </a>
+
             </p>
 
+
         </section>
+
 
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
     <footer>
+
 
         <p>
             🐢 Experiencia educativa 3D y realidad aumentada
         </p>
 
+
         <p>
             Tortuga verde · <em>Chelonia mydas</em>
         </p>
+
 
         <p>
             Información basada en fuentes científicas y oficiales.
         </p>
 
+
     </footer>
 
 
-    <!-- ================= MAPA JAVASCRIPT ================= -->
+    <!-- =====================================================
+         MAPA JAVASCRIPT
+         ===================================================== -->
 
     <script>
+
+
+        /* =====================================================
+           CREAR MAPA
+           ===================================================== */
 
         const map = L.map('map');
 
 
-        /*
-         * =====================================================
-         * MAPA BASE DE ARCGIS
-         * =====================================================
-         *
-         * Se mantiene Leaflet como biblioteca del mapa,
-         * pero se reemplaza OpenStreetMap por
-         * ArcGIS World Topographic Map.
-         *
-         */
+        /* =====================================================
+           MAPA BASE ARCGIS
+           ===================================================== */
 
         L.tileLayer(
 
             'https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
 
             {
+
                 maxZoom: 19,
 
                 attribution:
                     'Tiles &copy; Esri &mdash; Source: Esri, Garmin, FAO, NOAA, USGS, ' +
                     '&copy; OpenStreetMap contributors, and the GIS User Community'
+
             }
 
         ).addTo(map);
 
 
-        /* ================= ICONO ROJO ================= */
+        /* =====================================================
+           MARCADOR ROJO
+           ===================================================== */
 
         const iconoRojo = L.divIcon({
 
@@ -1867,7 +2222,9 @@
         });
 
 
-        /* ================= COIBA ================= */
+        /* =====================================================
+           PARQUE NACIONAL COIBA
+           ===================================================== */
 
         const coiba = L.marker(
 
@@ -1913,7 +2270,9 @@
         `);
 
 
-        /* ================= PUNTA CHAME ================= */
+        /* =====================================================
+           PUNTA CHAME
+           ===================================================== */
 
         const puntaChame = L.marker(
 
@@ -1953,7 +2312,9 @@
         `);
 
 
-        /* ================= PLAYA LA MARINERA ================= */
+        /* =====================================================
+           PLAYA LA MARINERA
+           ===================================================== */
 
         const laMarinera = L.marker(
 
@@ -1992,7 +2353,9 @@
         `);
 
 
-        /* ================= VISTA INICIAL ================= */
+        /* =====================================================
+           VISTA INICIAL
+           ===================================================== */
 
         map.fitBounds(
 
@@ -2005,14 +2368,18 @@
             ],
 
             {
+
                 padding:
                     [30, 30]
+
             }
 
         );
 
 
-        /* ================= ESCALA ================= */
+        /* =====================================================
+           ESCALA
+           ===================================================== */
 
         L.control.scale({
 
@@ -2020,7 +2387,9 @@
 
         }).addTo(map);
 
+
     </script>
+
 
 </body>
 
