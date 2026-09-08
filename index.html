@@ -5,13 +5,16 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
+    <meta
+        name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color"
+    <meta
+        name="theme-color"
         content="#087f8c">
 
-    <meta name="description"
+    <meta
+        name="description"
         content="Experiencia educativa 3D y realidad aumentada sobre la tortuga verde Chelonia mydas.">
 
     <title>
@@ -21,7 +24,7 @@
 
     <!-- =====================================================
          MODEL VIEWER
-    ====================================================== -->
+         ===================================================== -->
 
     <script
         type="module"
@@ -31,7 +34,7 @@
 
     <!-- =====================================================
          LEAFLET
-    ====================================================== -->
+         ===================================================== -->
 
     <link
         rel="stylesheet"
@@ -46,7 +49,7 @@
 
     <!-- =====================================================
          ESTILOS
-    ====================================================== -->
+         ===================================================== -->
 
     <style>
 
@@ -68,7 +71,9 @@
         }
 
 
-        /* ================= HEADER ================= */
+        /* =====================================================
+           HEADER
+           ===================================================== */
 
         header {
             background: linear-gradient(
@@ -134,7 +139,9 @@
         }
 
 
-        /* ================= NAV ================= */
+        /* =====================================================
+           NAVEGACIÓN
+           ===================================================== */
 
         nav {
             background: white;
@@ -167,7 +174,9 @@
         }
 
 
-        /* ================= CONTENEDOR ================= */
+        /* =====================================================
+           CONTENEDOR
+           ===================================================== */
 
         .container {
             width: 92%;
@@ -176,7 +185,9 @@
         }
 
 
-        /* ================= INTRO ================= */
+        /* =====================================================
+           INTRO
+           ===================================================== */
 
         .intro {
             text-align: center;
@@ -197,7 +208,9 @@
         }
 
 
-        /* ================= MODELO 3D ================= */
+        /* =====================================================
+           MODELO 3D
+           ===================================================== */
 
         .model-section {
             background: white;
@@ -216,12 +229,21 @@
                 #e1f2f1,
                 #f7fbfa
             );
+
+            position: relative;
         }
+
+
+        /* =====================================================
+           BOTÓN REALIDAD AUMENTADA
+           ===================================================== */
 
         #ar-button {
             position: absolute;
+
             bottom: 28px;
             left: 50%;
+
             transform: translateX(-50%);
 
             width: auto;
@@ -245,12 +267,11 @@
 
             transition: 0.25s;
 
-            z-index: 10;
+            z-index: 20;
         }
 
         #ar-button:hover {
             background: #05636c;
-
             transform:
                 translateX(-50%)
                 translateY(-2px);
@@ -259,36 +280,32 @@
         .model-controls {
             text-align: center;
             padding: 18px 20px;
-
             color: #657779;
             font-size: 14px;
         }
 
 
-        /* ================= DATOS ================= */
+        /* =====================================================
+           DATOS
+           ===================================================== */
 
         .highlights {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-
             margin: 20px 0 55px;
         }
 
         .highlight {
             background: #e0f3f0;
             border-radius: 16px;
-
             padding: 23px 12px;
-
             text-align: center;
         }
 
         .highlight strong {
             display: block;
-
             font-size: 23px;
-
             color: #075e67;
         }
 
@@ -298,7 +315,9 @@
         }
 
 
-        /* ================= SECCIONES ================= */
+        /* =====================================================
+           SECCIONES
+           ===================================================== */
 
         .section {
             padding: 45px 0;
@@ -311,10 +330,7 @@
 
         .section-title h2 {
             color: #075e67;
-
-            font-size:
-                clamp(28px, 5vw, 39px);
-
+            font-size: clamp(28px, 5vw, 39px);
             margin-bottom: 8px;
         }
 
@@ -323,7 +339,9 @@
         }
 
 
-        /* ================= TARJETAS ================= */
+        /* =====================================================
+           TARJETAS
+           ===================================================== */
 
         .cards {
             display: grid;
@@ -333,24 +351,16 @@
 
         .card {
             background: white;
-
             border-radius: 18px;
-
             padding: 28px;
-
-            box-shadow:
-                0 6px 22px rgba(0,0,0,0.06);
-
+            box-shadow: 0 6px 22px rgba(0,0,0,0.06);
             border: 1px solid #e0eeee;
-
             transition: 0.2s;
         }
 
         .card:hover {
             transform: translateY(-4px);
-
-            box-shadow:
-                0 10px 28px rgba(0,0,0,0.10);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.10);
         }
 
         .card-icon {
@@ -360,9 +370,7 @@
 
         .card h3 {
             color: #087f8c;
-
             font-size: 21px;
-
             margin-bottom: 10px;
         }
 
@@ -371,19 +379,16 @@
         }
 
 
-        /* ================= MAPA ================= */
+        /* =====================================================
+           MAPA
+           ===================================================== */
 
         .map-section {
             background: white;
-
             border-radius: 25px;
-
             padding: 35px;
-
             margin: 25px 0 55px;
-
-            box-shadow:
-                0 8px 28px rgba(0,0,0,0.07);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.07);
         }
 
         .map-title {
@@ -393,80 +398,59 @@
 
         .map-title h2 {
             color: #075e67;
-
             font-size: 32px;
-
             margin-bottom: 8px;
         }
 
         .map-title p {
             max-width: 800px;
-
             margin: auto;
-
             color: #657779;
         }
 
         #map {
             width: 100%;
-
             height: 500px;
-
             margin-top: 25px;
-
             border-radius: 18px;
-
             overflow: hidden;
-
             border: 1px solid #d7e9e7;
         }
 
         .map-note {
             background: #eef8f7;
-
             border-radius: 12px;
-
             padding: 15px;
-
             margin-top: 15px;
-
             text-align: center;
-
             color: #587174;
-
             font-size: 13px;
         }
 
         .popup-title {
             color: #075e67;
-
             font-size: 17px;
-
             font-weight: bold;
-
             margin-bottom: 6px;
         }
 
         .popup-type {
             color: #087f8c;
-
             font-weight: bold;
-
             font-size: 13px;
-
             margin-bottom: 6px;
         }
 
         .popup-text {
             color: #596d70;
-
             font-size: 13px;
-
             line-height: 1.5;
         }
 
 
-        /* ================= MARCADORES ROJOS ================= */
+        /* =====================================================
+           MARCADORES ROJOS
+           ===================================================== */
 
         .marcador-rojo {
             width: 22px;
@@ -477,7 +461,10 @@
             border: 3px solid white;
 
             border-radius:
-                50% 50% 50% 0;
+                50%
+                50%
+                50%
+                0;
 
             transform: rotate(-45deg);
 
@@ -504,91 +491,66 @@
         }
 
 
-        /* ================= DISTRIBUCIÓN ================= */
+        /* =====================================================
+           DISTRIBUCIÓN
+           ===================================================== */
 
         .distribution {
             background: #f0f8f7;
-
             border-radius: 23px;
-
             padding: 40px;
-
             margin: 20px 0 55px;
         }
 
         .distribution h2 {
             text-align: center;
-
             color: #075e67;
-
             margin-bottom: 18px;
         }
 
         .distribution p {
             max-width: 850px;
-
             margin: auto;
-
             text-align: center;
-
             color: #596d70;
         }
 
         .oceans {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-
             margin-top: 28px;
         }
 
         .ocean {
             background: white;
-
             padding: 20px;
-
             border-radius: 14px;
-
             text-align: center;
-
             color: #17555a;
-
             font-weight: bold;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.04);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
         }
 
 
-        /* ================= CICLO DE VIDA ================= */
+        /* =====================================================
+           CICLO DE VIDA
+           ===================================================== */
 
         .life-cycle {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-
             margin-top: 30px;
         }
 
         .life-stage {
             background: white;
-
             border: 1px solid #deeceb;
-
             border-radius: 18px;
-
             padding: 25px 15px;
-
             text-align: center;
-
-            box-shadow:
-                0 5px 18px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.05);
         }
 
         .life-stage .number {
@@ -596,14 +558,12 @@
             height: 40px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             border-radius: 50%;
 
             background: #087f8c;
-
             color: white;
 
             font-weight: bold;
@@ -613,18 +573,18 @@
 
         .life-stage h3 {
             color: #075e67;
-
             margin-bottom: 8px;
         }
 
         .life-stage p {
             color: #627476;
-
             font-size: 14px;
         }
 
 
-        /* ================= CURIOSIDAD ================= */
+        /* =====================================================
+           CURIOSIDAD
+           ===================================================== */
 
         .fact {
             background: linear-gradient(
@@ -634,107 +594,85 @@
             );
 
             border-radius: 22px;
-
             padding: 38px 30px;
-
             text-align: center;
-
             margin: 50px 0;
         }
 
         .fact-icon {
             font-size: 42px;
-
             margin-bottom: 8px;
         }
 
         .fact h2 {
             color: #075e67;
-
             margin-bottom: 10px;
         }
 
         .fact p {
             max-width: 800px;
-
             margin: auto;
-
             color: #556c6f;
         }
 
 
-        /* ================= AMENAZAS ================= */
+        /* =====================================================
+           AMENAZAS
+           ===================================================== */
 
         .threat-section {
             background: #173b3f;
-
             color: white;
-
             border-radius: 23px;
-
             padding: 45px 35px;
-
             margin: 55px 0;
         }
 
         .threat-section h2 {
             text-align: center;
-
             margin-bottom: 12px;
         }
 
         .threat-section > p {
             max-width: 800px;
-
             margin: auto;
-
             text-align: center;
-
             opacity: 0.9;
         }
 
         .threats {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-
             margin-top: 30px;
         }
 
         .threat {
-            background:
-                rgba(255,255,255,0.08);
-
+            background: rgba(255,255,255,0.08);
             padding: 22px;
-
             border-radius: 14px;
-
             text-align: center;
         }
 
         .threat-icon {
             font-size: 30px;
-
             margin-bottom: 8px;
         }
 
         .threat strong {
             display: block;
-
             margin-bottom: 7px;
         }
 
         .threat span {
             font-size: 14px;
-
             opacity: 0.88;
         }
 
 
-        /* ================= PANAMÁ ================= */
+        /* =====================================================
+           PANAMÁ
+           ===================================================== */
 
         .panama {
             background: linear-gradient(
@@ -744,164 +682,117 @@
             );
 
             border: 1px solid #cde8e5;
-
             border-radius: 23px;
-
             padding: 45px 35px;
-
             margin: 55px 0;
         }
 
         .panama h2 {
             text-align: center;
-
             color: #075e67;
-
             font-size: 32px;
-
             margin-bottom: 18px;
         }
 
         .panama p {
             max-width: 850px;
-
             margin: auto;
-
             color: #566c6f;
-
             text-align: center;
         }
 
         .panama-highlight {
             background: white;
-
             border-radius: 17px;
-
             padding: 25px;
-
             margin-top: 25px;
-
             text-align: center;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         .panama-highlight strong {
             color: #087f8c;
-
             display: block;
-
             font-size: 20px;
-
             margin-bottom: 12px;
         }
 
 
-        /* ================= CONSERVACIÓN ================= */
+        /* =====================================================
+           CONSERVACIÓN
+           ===================================================== */
 
         .conservation {
             background: white;
-
             border-radius: 23px;
-
             padding: 40px;
-
             margin: 55px 0;
-
-            box-shadow:
-                0 7px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
         }
 
         .conservation h2 {
             text-align: center;
-
             color: #075e67;
-
             margin-bottom: 15px;
         }
 
         .conservation > p {
             max-width: 820px;
-
             margin: auto;
-
             text-align: center;
-
             color: #5d7072;
         }
 
         .actions {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-
             margin-top: 28px;
         }
 
         .action {
             background: #eef8f7;
-
             padding: 20px;
-
             border-radius: 14px;
-
             text-align: center;
-
             color: #49676a;
         }
 
         .action strong {
             display: block;
-
             color: #075e67;
-
             margin-bottom: 6px;
         }
 
 
-        /* ================= REALIDAD AUMENTADA ================= */
+        /* =====================================================
+           REALIDAD AUMENTADA
+           ===================================================== */
 
         .ar-guide {
             background: white;
-
             border-radius: 23px;
-
             padding: 40px;
-
             margin: 55px 0;
-
-            box-shadow:
-                0 7px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 7px 25px rgba(0,0,0,0.06);
         }
 
         .ar-guide h2 {
             text-align: center;
-
             color: #075e67;
-
             margin-bottom: 30px;
         }
 
         .steps {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
         }
 
         .step {
             background: #f0f8f7;
-
             padding: 20px;
-
             border-radius: 15px;
-
             text-align: center;
         }
 
@@ -910,14 +801,12 @@
             height: 40px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             border-radius: 50%;
 
             background: #087f8c;
-
             color: white;
 
             font-weight: bold;
@@ -927,117 +816,98 @@
 
         .step strong {
             display: block;
-
             color: #17555a;
-
             margin-bottom: 6px;
         }
 
         .step p {
             font-size: 13px;
-
             color: #657779;
         }
 
 
-        /* ================= FUENTES ================= */
+        /* =====================================================
+           FUENTES
+           ===================================================== */
 
         .sources {
             background: #f0f7f6;
-
             border-radius: 20px;
-
             padding: 30px;
-
             margin: 55px 0 35px;
         }
 
         .sources h2 {
             color: #075e67;
-
             text-align: center;
-
             margin-bottom: 18px;
         }
 
         .sources ul {
             max-width: 850px;
-
             margin: auto;
-
             padding-left: 20px;
         }
 
         .sources li {
             margin-bottom: 10px;
-
             color: #5b6f71;
-
             font-size: 14px;
         }
 
         .sources a {
             color: #087f8c;
-
             font-weight: bold;
         }
 
 
-        /* ================= CRÉDITOS ================= */
+        /* =====================================================
+           CRÉDITOS
+           ===================================================== */
 
         .credits {
             background: #e6f2f0;
-
             border-radius: 20px;
-
             padding: 30px;
-
             margin: 35px 0 50px;
-
             text-align: center;
-
             color: #607375;
-
             font-size: 14px;
         }
 
         .credits h2 {
             color: #075e67;
-
             margin-bottom: 12px;
         }
 
         .credits a {
             color: #087f8c;
-
             font-weight: bold;
-
             text-decoration: none;
         }
 
 
-        /* ================= FOOTER ================= */
+        /* =====================================================
+           FOOTER
+           ===================================================== */
 
         footer {
             background: #102f33;
-
             color: white;
-
             text-align: center;
-
             padding: 30px 20px;
-
             font-size: 13px;
         }
 
         footer p {
             margin: 5px 0;
-
             opacity: 0.85;
         }
 
 
-        /* ================= RESPONSIVE ================= */
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
 
         @media (max-width: 850px) {
 
@@ -1046,13 +916,11 @@
             }
 
             .highlights {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .life-cycle {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .oceans {
@@ -1068,9 +936,9 @@
             }
 
             .steps {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
+
         }
 
 
@@ -1082,7 +950,6 @@
 
             nav a {
                 padding: 11px 9px;
-
                 font-size: 12px;
             }
 
@@ -1092,10 +959,9 @@
 
             #ar-button {
                 width: 88%;
-
                 min-width: 0;
-
                 font-size: 14px;
+                bottom: 20px;
             }
 
             .map-section {
@@ -1121,6 +987,7 @@
             .steps {
                 grid-template-columns: 1fr;
             }
+
         }
 
     </style>
@@ -1133,7 +1000,7 @@
 
     <!-- =====================================================
          HEADER
-    ====================================================== -->
+         ===================================================== -->
 
     <header id="inicio">
 
@@ -1157,7 +1024,7 @@
 
     <!-- =====================================================
          NAVEGACIÓN
-    ====================================================== -->
+         ===================================================== -->
 
     <nav>
 
@@ -1195,9 +1062,9 @@
     <main class="container">
 
 
-        <!-- =================================================
+        <!-- =====================================================
              INTRO
-        ================================================== -->
+             ===================================================== -->
 
         <section class="intro">
 
@@ -1210,28 +1077,23 @@
                 <em>Chelonia mydas</em>
                 es una tortuga marina
                 de amplia distribución mundial.
-
-                Los adultos son principalmente
-                herbívoros y se alimentan sobre todo
-                de algas y pastos marinos.
+                Los adultos son principalmente herbívoros
+                y se alimentan sobre todo de algas
+                y pastos marinos.
 
             </p>
 
         </section>
 
 
-        <!-- =================================================
-             MODELO 3D Y AR
-        ================================================== -->
+        <!-- =====================================================
+             MODELO 3D Y REALIDAD AUMENTADA
+             ===================================================== -->
 
         <section
             id="modelo"
             class="model-section">
 
-
-            <!-- IMPORTANTE:
-                 NO BORRAR ESTA ETIQUETA
-                 -->
 
             <model-viewer
 
@@ -1255,7 +1117,7 @@
 
                 ar
 
-                ar-modes="scene-viewer quick-look webxr"
+                ar-modes="webxr scene-viewer quick-look"
 
                 ar-placement="floor"
 
@@ -1276,7 +1138,7 @@
                     slot="ar-button"
                     id="ar-button">
 
-                    VER EN MI ESPACIO
+                    📱 VER EN MI ESPACIO
 
                 </button>
 
@@ -1301,9 +1163,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              DATOS
-        ================================================== -->
+             ===================================================== -->
 
         <div class="highlights">
 
@@ -1363,9 +1225,9 @@
         </div>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CONOCE
-        ================================================== -->
+             ===================================================== -->
 
         <section
             id="conoce"
@@ -1379,10 +1241,8 @@
                 </h2>
 
                 <p>
-
                     Características principales de
                     <em>Chelonia mydas</em>
-
                 </p>
 
             </div>
@@ -1483,9 +1343,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              MAPA
-        ================================================== -->
+             ===================================================== -->
 
         <section
             id="mapa"
@@ -1504,8 +1364,7 @@
                     documentados en fuentes oficiales
                     en relación con la presencia o
                     anidación de tortugas marinas,
-                    incluida
-                    <em>Chelonia mydas</em>.
+                    incluida <em>Chelonia mydas</em>.
 
                 </p>
 
@@ -1531,9 +1390,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              DISTRIBUCIÓN
-        ================================================== -->
+             ===================================================== -->
 
         <section class="distribution">
 
@@ -1571,9 +1430,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CICLO DE VIDA
-        ================================================== -->
+             ===================================================== -->
 
         <section
             id="ciclo"
@@ -1683,9 +1542,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CURIOSIDAD
-        ================================================== -->
+             ===================================================== -->
 
         <section class="fact">
 
@@ -1709,9 +1568,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              AMENAZAS
-        ================================================== -->
+             ===================================================== -->
 
         <section
             id="amenazas"
@@ -1861,9 +1720,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              PANAMÁ
-        ================================================== -->
+             ===================================================== -->
 
         <section
             id="panama"
@@ -1921,12 +1780,13 @@
 
             </div>
 
+
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CONSERVACIÓN
-        ================================================== -->
+             ===================================================== -->
 
         <section class="conservation">
 
@@ -1987,9 +1847,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              GUÍA REALIDAD AUMENTADA
-        ================================================== -->
+             ===================================================== -->
 
         <section class="ar-guide">
 
@@ -2089,9 +1949,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              FUENTES
-        ================================================== -->
+             ===================================================== -->
 
         <section
             id="fuentes"
@@ -2131,7 +1991,8 @@
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        Monitoreo de la anidación de la tortuga verde en el Parque Nacional Coiba
+                        Monitoreo de la anidación de la tortuga verde
+                        en el Parque Nacional Coiba
 
                     </a>
 
@@ -2147,7 +2008,8 @@
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        Campaña Nacional de Protección y Conservación de Tortugas Marinas
+                        Campaña Nacional de Protección y
+                        Conservación de Tortugas Marinas
 
                     </a>
 
@@ -2163,7 +2025,8 @@
                         target="_blank"
                         rel="noopener noreferrer">
 
-                        Biblioteca JavaScript utilizada para el mapa interactivo
+                        Biblioteca JavaScript utilizada
+                        para el mapa interactivo
 
                     </a>
 
@@ -2191,9 +2054,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CRÉDITOS
-        ================================================== -->
+             ===================================================== -->
 
         <section class="credits">
 
@@ -2270,7 +2133,7 @@
 
     <!-- =====================================================
          FOOTER
-    ====================================================== -->
+         ===================================================== -->
 
     <footer>
 
@@ -2279,8 +2142,7 @@
         </p>
 
         <p>
-            Tortuga verde ·
-            <em>Chelonia mydas</em>
+            Tortuga verde · <em>Chelonia mydas</em>
         </p>
 
         <p>
@@ -2292,21 +2154,21 @@
 
     <!-- =====================================================
          MAPA JAVASCRIPT
-    ====================================================== -->
+         ===================================================== -->
 
     <script>
 
 
-        /* =================================================
+        /* =====================================================
            CREAR MAPA
-        ================================================= */
+           ===================================================== */
 
         const map = L.map('map');
 
 
-        /* =================================================
+        /* =====================================================
            MAPA BASE ARCGIS
-        ================================================= */
+           ===================================================== */
 
         L.tileLayer(
 
@@ -2325,9 +2187,9 @@
         ).addTo(map);
 
 
-        /* =================================================
-           MARCADOR ROJO
-        ================================================= */
+        /* =====================================================
+           ICONO ROJO
+           ===================================================== */
 
         const iconoRojo = L.divIcon({
 
@@ -2348,9 +2210,9 @@
         });
 
 
-        /* =================================================
+        /* =====================================================
            PARQUE NACIONAL COIBA
-        ================================================= */
+           ===================================================== */
 
         const coiba = L.marker(
 
@@ -2396,9 +2258,9 @@
         `);
 
 
-        /* =================================================
+        /* =====================================================
            PUNTA CHAME
-        ================================================= */
+           ===================================================== */
 
         const puntaChame = L.marker(
 
@@ -2438,9 +2300,9 @@
         `);
 
 
-        /* =================================================
+        /* =====================================================
            PLAYA LA MARINERA
-        ================================================= */
+           ===================================================== */
 
         const laMarinera = L.marker(
 
@@ -2479,9 +2341,9 @@
         `);
 
 
-        /* =================================================
+        /* =====================================================
            VISTA INICIAL
-        ================================================= */
+           ===================================================== */
 
         map.fitBounds(
 
@@ -2503,9 +2365,9 @@
         );
 
 
-        /* =================================================
+        /* =====================================================
            ESCALA
-        ================================================= */
+           ===================================================== */
 
         L.control.scale({
 
